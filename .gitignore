@@ -2,6 +2,7 @@
 *.d
 
 .*
+miniRT
 
 # Object files
 *.o
