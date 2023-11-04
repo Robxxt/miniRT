@@ -6,12 +6,12 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 07:57:27 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/04 08:07:03 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/04 09:13:00 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../lib/libft/libft.h"
+#include "../libs/libft/libft.h"
 
 int	main(void)
 {
