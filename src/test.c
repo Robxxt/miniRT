@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 07:57:27 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/04 09:13:00 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/04 09:23:32 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 int	main(void)
 {
-	printf("HI there!");
+	char	**out;
+
+	out = ft_split("Hi tehre!", ' ');
+	for (int i = 0; out[i]; i++)
+		printf("%s\n", out[i]);
+	free_split(out);
 	return (0);
 }
