@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/05 09:35:41 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/05 10:11:36 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Missing the image file!\n", STDERR_FILENO);
 		return (1);
 	}
-	(void)argv;
+	(void) argv;
 	return (0);
 }

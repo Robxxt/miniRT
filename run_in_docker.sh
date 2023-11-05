@@ -6,26 +6,30 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 09:38:43 by rdragan           #+#    #+#              #
-#    Updated: 2023/11/04 10:31:41 by rdragan          ###   ########.fr        #
+#    Updated: 2023/11/05 10:38:49 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
 
-# # build the container
-docker build -t mini_rt_env .
-# # run the container
-docker run mini_rt_env
-
-sleep 1
-
-# remove all containers and images
-for image in $(docker images | grep -E 'none|mini_rt_env' | awk '{print $3}'); do
-	for cotainer_list in $image; do
-		for i in $(docker ps -a | grep -E 'mini_rt_env' | awk '{print $1}'); do
-			docker stop $i
-			docker rm $i
-		done
-	done
-	docker rmi $image
-done
+# check weather the image exists or not and connect to it
+if [ -z "$(docker images | grep mini_rt_env)" ]; then
+	# build the container
+	docker build -t mini_rt_env .
+	# run the container
+	docker run mini_rt_env
+	for i in $(docker ps -a | grep "mini_rt_env" | awk '{print $1}');do echo Removed: && docker rm $i; done
+else
+	# run the container
+	docker run mini_rt_env
+	# remove containers
+	for i in $(docker ps -a | grep "mini_rt_env" | awk '{print $1}');do echo Removed: && docker rm $i; done
+	
+	echo "Do you want to remove image?[Y/N]"
+	read option
+	if [ $option == "Y" ]; then
+		docker rmi $(docker images | grep mini_rt_env | awk '{print $3}')
+	elif [ $option == "Y" ]; then
+		docker rmi $(docker images | grep mini_rt_env | awk '{print $3}')
+	fi
+fi

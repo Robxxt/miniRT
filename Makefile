@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/11/05 08:25:20 by rdragan          ###   ########.fr        #
+#    Updated: 2023/11/05 10:09:55 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,14 @@ LIBFT_ARCHIVE_PATH	=	$(LIBFT_PATH)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIBFT_ARCHIVE_PATH) 
 	@ echo "Compiling ..."
-	@ if [ ! -f $(LIBFT_ARCHIVE_PATH) ]; then make -C $(LIBFT_PATH); fi
-	@ cc $(LIBFT_ARCHIVE_PATH) $^ -o $(NAME)
+	@ $(CC) $(LIBFT_ARCHIVE_PATH) $^ -o $(NAME)
+
+$(LIBFT_ARCHIVE_PATH): $(LIBFT_PATH)
+	make -C $(LIBFT_PATH)
+
+$(BUILD_LIBFT):
 
 
 clean:
