@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   is_valid_file_extension.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 07:57:27 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/04 09:23:32 by rdragan          ###   ########.fr       */
+/*   Created: 2023/11/05 08:07:52 by rdragan           #+#    #+#             */
+/*   Updated: 2023/11/05 08:16:37 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../libs/libft/libft.h"
 
-int	main(void)
+#include "../includes/miniRT.h"
+
+/*
+Returns true if the filename ends with .rt
+*/
+bool	is_valid_file_extension(char *filename)
 {
-	char	**out;
+	size_t	file_size;
 
-	out = ft_split("Hi tehre!", ' ');
-	for (int i = 0; out[i]; i++)
-		printf("%s\n", out[i]);
-	free_split(out);
-	return (0);
+	if (!filename)
+		return (false);
+	file_size = ft_strlen(filename);
+	if (ft_strncmp(".rt", filename + file_size - 3, 4) == 0)
+		return (true);
+	return (false);
 }
