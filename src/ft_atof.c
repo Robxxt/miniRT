@@ -6,12 +6,15 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:12:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 06:36:45 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 06:44:19 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
+/*
+Receives a string and returns an integer ignoring the floating part.
+*/
 int	get_integer_part(char *str)
 {
 	long	tmp;
@@ -48,5 +51,5 @@ float	ft_atof(char *str)
 {
 	if (is_valid_number(str) == false)
 		return (0);
-	return (123);
+	return (45);
 }
