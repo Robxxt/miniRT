@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 08:24:22 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 05:30:48 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 06:04:22 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	parsing_tests(void)
 {
 	test_is_valid_file_extension();
 	test_is_valid_file();
-	test_ft_atof();
+	test_get_integer_part();
 	test_is_valid_number();
+	test_ft_atof();
 }

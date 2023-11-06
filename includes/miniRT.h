@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 05:28:28 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 06:05:11 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ bool	is_valid_file_extension(char *filename);
 bool	is_valid_file(char *filename);
 bool	is_valid_number(char *str);
 
+int		get_integer_part(char *str);
 float	ft_atof(char *str);
 
 // Tests
@@ -116,6 +117,7 @@ void	parsing_tests(void);
 void	test_is_valid_file_extension(void);
 void	test_is_valid_file(void);
 void	test_ft_atof(void);
+void	test_get_integer_part(void);
 void	test_is_valid_number(void);
 
 #endif

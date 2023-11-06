@@ -6,11 +6,34 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:12:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 05:43:02 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 06:18:16 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
+
+int	get_integer_part(char *str)
+{
+	int	result;
+	int	sign;
+	int	i;
+
+	result = 0;
+	sign = 1;
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] && str[i] != '.')
+	{
+		result = result * 10 + str[i] - '0';
+		i++;
+	}
+	return (result * sign);
+}
 
 /*
 Converts a string to a floating value with 1 decimal value.
@@ -19,6 +42,7 @@ This function does return 0 if is not a valid float.=
 */
 float	ft_atof(char *str)
 {
-	(void)str;
-	return (4);
+	if (is_valid_number(str) == false)
+		return (0);
+	return (123);
 }
