@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:16:44 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 06:18:40 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 06:32:13 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void	test_ft_atof(void)
 		counter++;
 	else
 		printf("ERROR: test_ft_atof(\"-123\") == -123.0 💥\n");
-	if (ft_atof("41242142123.44127") == 0.0)
+	if (ft_atof("4124214212344127") == 0.0)
 		counter++;
 	else
-		printf("ERROR: test_ft_atof(\"41242142123.44127\") == 0.0 💥\n");
+		printf("ERROR: test_ft_atof(\"4124214212344127\") == 0.0 💥\n");
 	if (counter == total_tests)
 		printf("✅\n");
 	else

@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:12:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 06:18:16 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 06:36:45 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	get_integer_part(char *str)
 {
-	int	result;
+	long	tmp;
+	int		result;
 	int	sign;
 	int	i;
 
-	result = 0;
+	tmp = 0;
 	sign = 1;
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
@@ -29,9 +30,12 @@ int	get_integer_part(char *str)
 	}
 	while (str[i] && str[i] != '.')
 	{
-		result = result * 10 + str[i] - '0';
+		tmp = tmp * 10 + str[i] - '0';
 		i++;
 	}
+	if (tmp > INT_MAX || tmp < INT_MIN)
+		return (INT_MAX);
+	result = (int)tmp;
 	return (result * sign);
 }
 
