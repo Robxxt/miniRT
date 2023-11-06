@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:42:46 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 05:58:33 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 06:30:32 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,9 @@ bool	is_valid_number(char *str)
 			return (false);
 		i++;
 	}
+	if (get_integer_part(str) > INT_MAX - 1)
+		return (false);
+	if (get_integer_part(str) < INT_MIN + 1)
+		return (false);
 	return (true);
 }
