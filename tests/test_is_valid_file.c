@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 08:14:53 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/05 08:23:40 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 05:07:45 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,41 @@
 
 void	test_is_valid_file(void)
 {
+	int	counter = 0;
+	int	total_tests = 5;
 	printf("test_is_valid_file:\n");
 	if (is_valid_file("images/.rt") == 1)
-		printf("✅\n");
+		counter++;
 	else
 	{
 		printf("ERROR: test_is_valid_file(\"images/.rt\") == 1 💥\n");
 	}
 	if (is_valid_file("images/file1.rt") == 1)
-		printf("✅\n");
+		counter++;
 	else
 	{
 		printf("ERROR: test_is_valid_file(\"images/file1.rt\") == 1 💥\n");
 	}
 	if (is_valid_file("images/hello.rt") == 0)
-		printf("✅\n");
+		counter++;
 	else
 	{
 		printf("ERROR: test_is_valid_file(\"images/hello.rt\") == 1 💥\n");
 	}
 	if (is_valid_file("") == 0)
-		printf("✅\n");
+		counter++;
 	else
 	{
 		printf("ERROR: test_is_valid_file(\"\") == 1 💥\n");
 	}
 	if (is_valid_file(NULL) == 0)
-		printf("✅\n");
+		counter++;
 	else
 	{
 		printf("ERROR: test_is_valid_file(NULL) == 1 💥\n");
 	}
+	if (counter == total_tests)
+		printf("✅\n");
+	else
+		printf("💥\n");
 }
