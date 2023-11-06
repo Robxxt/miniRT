@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 06:05:11 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 07:58:19 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <fcntl.h>
+# include <math.h>
 # include <stdio.h> // To remove!!!
 
 /*
@@ -110,6 +111,7 @@ bool	is_valid_file(char *filename);
 bool	is_valid_number(char *str);
 
 int		get_integer_part(char *str);
+float	get_float_part(char *str);
 float	ft_atof(char *str);
 
 // Tests
@@ -119,5 +121,7 @@ void	test_is_valid_file(void);
 void	test_ft_atof(void);
 void	test_get_integer_part(void);
 void	test_is_valid_number(void);
+void	test_get_float_part(void);
+
 
 #endif
