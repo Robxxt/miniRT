@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/05 09:32:50 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 05:28:28 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,18 @@ typedef	struct s_image
 }	t_image;
 
 
-// Validate file extension
+// Validate functions
 bool	is_valid_file_extension(char *filename);
 bool	is_valid_file(char *filename);
+bool	is_valid_number(char *str);
+
+float	ft_atof(char *str);
 
 // Tests
+void	parsing_tests(void);
 void	test_is_valid_file_extension(void);
 void	test_is_valid_file(void);
-void	parsing_tests(void);
+void	test_ft_atof(void);
+void	test_is_valid_number(void);
 
 #endif
