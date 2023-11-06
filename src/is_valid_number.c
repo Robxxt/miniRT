@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:42:46 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 06:30:32 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 08:24:35 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ bool	is_valid_number(char *str)
 	int	minus_counter;
 	int	i;
 
+	if (!str || !str[0])
+		return (false);
 	point_counter = 0;
 	plus_counter = 0;
 	minus_counter = 0;
