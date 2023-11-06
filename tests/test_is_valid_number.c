@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:28:44 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 06:30:15 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/06 06:37:49 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	test_is_valid_number(void)
 {
 	int	counter = 0;
-	int	total_tests = 17;
+	int	total_tests = 19;
 	printf("test_is_valid_number:\n");
 
 	if (is_valid_number("Hola") == false)
@@ -82,6 +82,14 @@ void	test_is_valid_number(void)
 		counter++;
 	else
 		printf("ERROR: test_is_valid_number(\"2147483647\") == false 💥\n");
+	if (is_valid_number("2147483644214127") == false)
+		counter++;
+	else
+		printf("ERROR: test_is_valid_number(\"2147483644214127\") == false 💥\n");
+	if (is_valid_number("-2147483644214127") == false)
+		counter++;
+	else
+		printf("ERROR: test_is_valid_number(\"-2147483644214127\") == false 💥\n");
 	if (is_valid_number("-2147483648") == false)
 		counter++;
 	else
