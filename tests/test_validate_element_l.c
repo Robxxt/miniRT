@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:48:29 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 11:58:06 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 16:58:47 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	test_validate_element_l(void)
 {
 	int	counter = 0;
-	int	total_tests = 8;
+	int	total_tests = 7;
 	printf("test_validate_element_l:\n");
 
 	char *case1[] = {"L", "2,5", NULL};
@@ -38,21 +38,21 @@ void	test_validate_element_l(void)
 		counter++;
 	else
 		printf("ERROR: test_validate_element_l({\"L\", \"0.5,0.0,10.3\", \"1.1\", \"10\"}) == false 💥\n");
-	char *case5[] = {"L", "0.5,0.0,10.3", "1.1", "180", NULL};
+	char *case5[] = {"L", "0.5,0.0,10.3", "1.0", "180", NULL};
 	if (validate_element_l(case5) == true)
 		counter++;
 	else
-		printf("ERROR: test_validate_element_l({\"L\", \"0.5,0.0,10.3\", \"1.1\", \"180\"}) == true 💥\n");
+		printf("ERROR: test_validate_element_l({\"L\", \"0.5,0.0,10.3\", \"1.0\", \"180\"}) == true 💥\n");
 	char *case6[] = {"L", "0.5,0.0,10.3", "1.1", "-10", NULL};
 	if (validate_element_l(case6) == false)
 		counter++;
 	else
 		printf("ERROR: test_validate_element_l({\"L\", \"0.5,0.0,10.3\", \"1.1\", \"-10\"}) == false 💥\n");
-	char *case7[] = {"L", "0.5,0.0,10.3", "1.1", "190", NULL};
+	char *case7[] = {"L", "0.5,0.0,10.3", "1.0", "190", NULL};
 	if (validate_element_l(case7) == false)
 		counter++;
 	else
-		printf("ERROR: test_validate_element_l({\"L\", \"0.5,0.0,10.3\", \"1.1\", \"190\"}) == false 💥\n");
+		printf("ERROR: test_validate_element_l({\"L\", \"0.5,0.0,10.3\", \"1.0\", \"190\"}) == false 💥\n");
 	if (counter == total_tests)
 		printf("✅\n");
 	else
