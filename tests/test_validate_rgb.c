@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:20:54 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 10:24:29 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 11:17:01 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	test_validate_rgb(void)
 {
 	int	counter = 0;
-	int	total_tests = 8;
+	int	total_tests = 4;
 	printf("test_validate_rgb:\n");
 
 	if (validate_rgb("255,255,255") == true)
