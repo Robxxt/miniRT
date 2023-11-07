@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 10:24:41 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 10:31:43 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ int		get_integer_part(char *str);
 float	get_float_part(char *str);
 float	ft_atof(char *str);
 t_list	*get_file_content(int fd);
+int	split_len(char **s);
 
 // Debugging info
 void	print_lst(t_list *lst);
@@ -132,5 +133,6 @@ void	test_is_valid_float_number(void);
 void	test_get_float_part(void);
 void	test_is_valid_element_type(void);
 void	test_validate_element_a(void);
+void	test_split_len(void);
 void	test_validate_rgb(void);
 #endif
