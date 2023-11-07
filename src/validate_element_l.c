@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_tests.c                                    :+:      :+:    :+:   */
+/*   validate_element_l.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 08:24:22 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 11:48:55 by rdragan          ###   ########.fr       */
+/*   Created: 2023/11/07 11:46:47 by rdragan           #+#    #+#             */
+/*   Updated: 2023/11/07 16:27:31 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-void	parsing_tests(void)
+// bool	is_valid_coor(char *s)
+
+/*
+Returns true if is a valid formatted L element.
+*/
+bool	validate_element_l(char **s)
 {
-	test_is_valid_file_extension();
-	test_is_valid_file();
-	test_get_integer_part();
-	test_get_float_part();
-	test_is_valid_float_number();
-	test_ft_atof();
-	test_is_valid_element_type();
-	test_split_len();
-	test_validate_element_a();
-	test_validate_element_l();
-	test_validate_rgb();
+	float	n;
+
+	if (!s || split_len(s) != 4)
+		return (false);
+	if (is_valid_float_number(s[1]) == false || validate_rgb(s[2]) == false)
+		return (false);
+	n = ft_atof(s[1]);
+	if (n < 0 || n > 1)
+		return (false);
+	return (true);
 }

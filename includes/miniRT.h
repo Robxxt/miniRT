@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 10:31:43 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 16:30:53 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ bool	is_valid_file(char *filename);
 bool	is_valid_float_number(char *str);
 bool	is_valid_element_type(char *type);
 bool	validate_element_a(char **s);
+bool	validate_element_l(char **s);
 bool	has_valid_content(t_list *lst);
 bool	validate_rgb(char *s);
 
@@ -118,7 +119,8 @@ int		get_integer_part(char *str);
 float	get_float_part(char *str);
 float	ft_atof(char *str);
 t_list	*get_file_content(int fd);
-int	split_len(char **s);
+int		split_len(char **s);
+bool    is_valid_int_list(char **list, bool (*function)(char *, int));
 
 // Debugging info
 void	print_lst(t_list *lst);
@@ -132,7 +134,9 @@ void	test_get_integer_part(void);
 void	test_is_valid_float_number(void);
 void	test_get_float_part(void);
 void	test_is_valid_element_type(void);
-void	test_validate_element_a(void);
 void	test_split_len(void);
 void	test_validate_rgb(void);
+void	test_validate_element_a(void);
+void	test_validate_element_l(void);
+
 #endif
