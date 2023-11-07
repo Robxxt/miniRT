@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 09:02:44 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 09:32:08 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,9 @@ typedef	struct s_image
 // Validate functions
 bool	is_valid_file_extension(char *filename);
 bool	is_valid_file(char *filename);
-bool	is_valid_number(char *str);
+bool	is_valid_float_number(char *str);
 bool	is_valid_element_type(char *type);
+bool	validate_element_a(char **s);
 bool	has_valid_content(t_list *lst);
 
 int		get_integer_part(char *str);
@@ -126,8 +127,9 @@ void	test_is_valid_file_extension(void);
 void	test_is_valid_file(void);
 void	test_ft_atof(void);
 void	test_get_integer_part(void);
-void	test_is_valid_number(void);
+void	test_is_valid_float_number(void);
 void	test_get_float_part(void);
 void	test_is_valid_element_type(void);
+void	test_validate_element_a(void);
 
 #endif

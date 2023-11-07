@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_number.c                                  :+:      :+:    :+:   */
+/*   is_valid_float_number.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -23,7 +23,7 @@ static bool	is_valid_digit(char c)
 Returns true if the string can be converted to a float.
 False otherwise.
 */
-bool	is_valid_number(char *str)
+bool	is_valid_float_number(char *str)
 {
 	int	point_counter;
 	int	plus_counter;

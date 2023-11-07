@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_tests.c                                    :+:      :+:    :+:   */
+/*   validate_element_a.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 08:24:22 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 09:31:54 by rdragan          ###   ########.fr       */
+/*   Created: 2023/11/07 09:13:48 by rdragan           #+#    #+#             */
+/*   Updated: 2023/11/07 09:26:20 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-void	parsing_tests(void)
+bool	validate_element_a(char **s)
 {
-	test_is_valid_file_extension();
-	test_is_valid_file();
-	test_get_integer_part();
-	test_get_float_part();
-	test_is_valid_float_number();
-	test_ft_atof();
-	test_is_valid_element_type();
-	test_validate_element_a();
+	if (!s || !s[1])
+		return (false);
+	if (is_valid_float_number(s[1]) == false)
+		return (false);
+	return (true);
 }

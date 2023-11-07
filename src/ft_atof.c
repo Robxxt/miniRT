@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:12:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 08:22:12 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 09:16:56 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ float	get_float_part(char *str)
 	int		sign;
 	int		decimals;
 
-	if (!is_valid_number(str))
+	if (!is_valid_float_number(str))
 		return (0.0);
 	sign = 1;
 	i = 0;
@@ -81,7 +81,7 @@ float	ft_atof(char *str)
 {
 	float	result;
 
-	if (is_valid_number(str) == false)
+	if (is_valid_float_number(str) == false)
 		return (0);
 	result = 0.0;
 	result = (float)get_integer_part(str) + get_float_part(str);

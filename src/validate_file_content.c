@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:31:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 08:57:27 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 09:28:29 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ Return true if the format of the line is correct.
 */
 bool	check_element(char **s)
 {
-	return (is_valid_element_type(s[0]));
+	if (is_valid_element_type(s[0]) == false)
+		return (false);
+	if (ft_strncmp(s[0], "A", 2) == 0)
+		if (validate_element_a(s) == false)
+			return (false);
+	return (true);
 }
 
 /*
@@ -34,6 +39,6 @@ bool	has_valid_content(t_list *lst)
 			return (false);
 		tmp = tmp->next;
 	}
-	// print_lst(lst);
+	print_lst(lst);
 	return (true);
 }
