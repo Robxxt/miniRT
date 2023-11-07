@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 09:32:08 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 10:24:41 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ bool	is_valid_float_number(char *str);
 bool	is_valid_element_type(char *type);
 bool	validate_element_a(char **s);
 bool	has_valid_content(t_list *lst);
+bool	validate_rgb(char *s);
 
 int		get_integer_part(char *str);
 float	get_float_part(char *str);
@@ -131,5 +132,5 @@ void	test_is_valid_float_number(void);
 void	test_get_float_part(void);
 void	test_is_valid_element_type(void);
 void	test_validate_element_a(void);
-
+void	test_validate_rgb(void);
 #endif

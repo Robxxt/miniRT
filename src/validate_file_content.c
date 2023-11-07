@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:31:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 09:28:29 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 10:18:36 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ bool	has_valid_content(t_list *lst)
 			return (false);
 		tmp = tmp->next;
 	}
-	print_lst(lst);
+	// print_lst(lst);
 	return (true);
 }
