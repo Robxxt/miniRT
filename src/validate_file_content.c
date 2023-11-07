@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_tests.c                                    :+:      :+:    :+:   */
+/*   validate_file_content.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 08:24:22 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 08:59:26 by rdragan          ###   ########.fr       */
+/*   Created: 2023/11/07 08:31:02 by rdragan           #+#    #+#             */
+/*   Updated: 2023/11/07 08:57:27 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-void	parsing_tests(void)
+/*
+Return true if the format of the line is correct.
+*/
+bool	check_element(char **s)
 {
-	test_is_valid_file_extension();
-	test_is_valid_file();
-	test_get_integer_part();
-	test_get_float_part();
-	test_is_valid_number();
-	test_ft_atof();
-	test_is_valid_element_type();
+	return (is_valid_element_type(s[0]));
+}
+
+/*
+Returns true if the whole file content is correct.
+*/
+bool	has_valid_content(t_list *lst)
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp)
+	{
+		if (check_element(tmp->content) == false)
+			return (false);
+		tmp = tmp->next;
+	}
+	// print_lst(lst);
+	return (true);
 }
