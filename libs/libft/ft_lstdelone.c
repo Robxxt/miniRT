@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 10:44:10 by rdragan           #+#    #+#             */
-/*   Updated: 2023/09/16 23:17:16 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 06:54:19 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	ft_lstdelone(t_list *lst)
 {
 	if (!lst)
 		return ;
-	free(lst->content);
+	free_split(lst->content);
 	free(lst);
 }

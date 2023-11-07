@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 07:58:19 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 06:39:48 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,9 @@ bool	is_valid_number(char *str);
 int		get_integer_part(char *str);
 float	get_float_part(char *str);
 float	ft_atof(char *str);
+
+// Debugging info
+void	print_lst(t_list *lst);
 
 // Tests
 void	parsing_tests(void);

@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/11/06 05:43:13 by rdragan          ###   ########.fr        #
+#    Updated: 2023/11/07 06:40:02 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,14 @@ SRC		=	src/main.c \
 			src/is_valid_file.c \
 			src/ft_atof.c \
 			src/is_valid_number.c \
+			src/print_lst.c \
 			tests/parsing_tests.c \
 			tests/test_is_valid_file_extension.c \
 			tests/test_is_valid_file.c \
 			tests/test_ft_atof.c \
 			tests/test_is_valid_number.c
 OBJ		=	$(SRC:.c=.o)
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra -g
 LIBFT_PATH	=	libs/libft
 LIBFT_ARCHIVE_PATH	=	$(LIBFT_PATH)/libft.a
 

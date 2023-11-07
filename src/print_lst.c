@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   print_lst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 18:15:59 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 06:47:54 by rdragan          ###   ########.fr       */
+/*   Created: 2023/11/07 06:37:34 by rdragan           #+#    #+#             */
+/*   Updated: 2023/11/07 06:49:48 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/miniRT.h"
 
-/*
-Add the new node to the end of the list.
-@param lst: address of the list.
-@param new: address of the pointer to be added to lst.
-*/
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	print_lst(t_list *lst)
 {
-	t_list	*temp;
+	t_list	*tmp;
+	char	**sp;
 
 	if (!lst)
 		return ;
-	if (!(*lst))
+	tmp = lst;
+	while (tmp)
 	{
-		*lst = new;
-		return ;
+		sp = tmp->content;
+		printf("{\n");
+		for (int i = 0; sp[i]; i++)
+		{
+			printf("%s\n", sp[i]);
+		}
+		printf("}\n");
+		
+		tmp = tmp->next;
 	}
-	temp = *lst;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new;
 }
