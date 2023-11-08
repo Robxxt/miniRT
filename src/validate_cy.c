@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_tests.c                                    :+:      :+:    :+:   */
+/*   validate_cy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 08:24:22 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 09:57:49 by rdragan          ###   ########.fr       */
+/*   Created: 2023/11/08 09:52:44 by rdragan           #+#    #+#             */
+/*   Updated: 2023/11/08 10:02:48 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-void	parsing_tests(void)
+bool	validate_cy(char **s)
 {
-	test_is_valid_file_extension();
-	test_is_valid_file();
-	test_get_integer_part();
-	test_get_float_part();
-	test_is_valid_float_number();
-	test_ft_atof();
-	test_is_valid_element_type();
-	test_split_len();
-	test_validate_element_a();
-	test_validate_element_l();
-	test_validate_element_c();
-	test_validate_rgb();
-	test_validate_sp();
-	test_validate_pl();
-	test_validate_cy();
+	if (!s || split_len(s) != 6)
+		return (false);
+	if (ft_strncmp("cy", s[0], 3) != 0)
+		return (false);
+	if (validate_coord(s[1]) == false)
+		return (false);
+	if (validate_3d_normalized_vector(s[2]) == false)
+		return (false);
+	if (is_valid_float_number(s[3]) == 0 || is_valid_float_number(s[4]) == 0)
+		return (false);
+	if (validate_rgb(s[5]) == false)
+		return (false);
+	return (true);
 }

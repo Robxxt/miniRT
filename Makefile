@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/11/08 09:31:49 by rdragan          ###   ########.fr        #
+#    Updated: 2023/11/08 09:53:24 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC		=	src/main.c \
 			src/is_valid_list.c \
 			src/validate_sp.c \
 			src/validate_pl.c \
+			src/validate_cy.c \
 			tests/parsing_tests.c \
 			tests/test_is_valid_file_extension.c \
 			tests/test_is_valid_file.c \
@@ -40,7 +41,8 @@ SRC		=	src/main.c \
 			tests/test_validate_rgb.c \
 			tests/test_split_len.c \
 			tests/test_validate_sp.c \
-			tests/test_validate_pl.c
+			tests/test_validate_pl.c \
+			tests/test_validate_cy.c
 OBJ		=	$(SRC:.c=.o)
 CFLAGS	=	-Wall -Werror -Wextra -g
 LIBFT_PATH	=	libs/libft
