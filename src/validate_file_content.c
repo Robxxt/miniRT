@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:31:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 11:18:35 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 14:47:14 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,21 @@ bool	check_element(char **s)
 		return (false);
 	if (ft_strncmp(s[0], "A", 2) == 0)
 		if (validate_element_a(s) == false)
+			return (false);
+	if (ft_strncmp(s[0], "C", 2) == 0)
+		if (validate_element_c(s) == false)
+			return (false);
+	if (ft_strncmp(s[0], "L", 2) == 0)
+		if (validate_element_l(s) == false)
+			return (false);
+	if (ft_strncmp(s[0], "pl", 2) == 0)
+		if (validate_pl(s) == false)
+			return (false);
+	if (ft_strncmp(s[0], "cy", 2) == 0)
+		if (validate_cy(s) == false)
+			return (false);
+	if (ft_strncmp(s[0], "sp", 2) == 0)
+		if (validate_sp(s) == false)
 			return (false);
 	return (true);
 }

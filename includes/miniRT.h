@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 09:53:13 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 14:50:35 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,12 +117,6 @@ bool	validate_element_l(char **s);
 bool	validate_element_c(char **s);
 bool	has_valid_content(t_list *lst);
 bool	is_valid_angle(int d);
-
-int		get_integer_part(char *str);
-float	get_float_part(char *str);
-float	ft_atof(char *str);
-t_list	*get_file_content(int fd);
-int		split_len(char **s);
 bool    is_valid_int_list(char **list, bool (*function)(char *, int));
 bool    is_valid_float_list(char **list, bool (*function)(char *, float));
 bool	validate_coord(char *s);
@@ -131,6 +125,15 @@ bool	validate_sp(char **s);
 bool	validate_pl(char **s);
 bool	validate_cy(char **s);
 
+int		get_integer_part(char *str);
+float	get_float_part(char *str);
+float	ft_atof(char *str);
+t_list	*get_file_content(int fd);
+int		split_len(char **s);
+t_image	*parser(char **argv);
+
+
+void	clear_lst(t_list *lst);
 
 // Debugging info
 void	print_lst(t_list *lst);
