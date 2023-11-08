@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_tests.c                                    :+:      :+:    :+:   */
+/*   validate_pl.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 08:24:22 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 09:40:46 by rdragan          ###   ########.fr       */
+/*   Created: 2023/11/08 09:31:14 by rdragan           #+#    #+#             */
+/*   Updated: 2023/11/08 09:50:48 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-void	parsing_tests(void)
+bool	validate_pl(char **s)
 {
-	test_is_valid_file_extension();
-	test_is_valid_file();
-	test_get_integer_part();
-	test_get_float_part();
-	test_is_valid_float_number();
-	test_ft_atof();
-	test_is_valid_element_type();
-	test_split_len();
-	test_validate_element_a();
-	test_validate_element_l();
-	test_validate_element_c();
-	test_validate_rgb();
-	test_validate_sp();
-	test_validate_pl();
+	if (!s || split_len(s) != 4)
+		return (false);
+	if (ft_strncmp("pl", s[0], 3) != 0)
+		return (false);
+	if (validate_coord(s[1]) == false)
+		return (false);
+	if (validate_3d_normalized_vector(s[2]) == false)
+		return (false);
+	if (validate_rgb(s[3]) == false)
+		return (false);
+	return (true);
 }

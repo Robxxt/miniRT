@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 08:36:24 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 09:43:56 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,9 @@ int		split_len(char **s);
 bool    is_valid_int_list(char **list, bool (*function)(char *, int));
 bool    is_valid_float_list(char **list, bool (*function)(char *, float));
 bool	validate_coord(char *s);
+bool	validate_3d_normalized_vector(char *s);
 bool	validate_sp(char **s);
+bool	validate_pl(char **s);
 
 
 // Debugging info
@@ -147,5 +149,6 @@ void	test_validate_element_a(void);
 void	test_validate_element_l(void);
 void	test_validate_element_c(void);
 void	test_validate_sp(void);
+void	test_validate_pl(void);
 
 #endif
