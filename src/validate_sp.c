@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_tests.c                                    :+:      :+:    :+:   */
+/*   validate_sp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 08:24:22 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 08:36:31 by rdragan          ###   ########.fr       */
+/*   Created: 2023/11/08 08:35:43 by rdragan           #+#    #+#             */
+/*   Updated: 2023/11/08 08:36:56 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-void	parsing_tests(void)
+bool	validate_sp(char **s)
 {
-	test_is_valid_file_extension();
-	test_is_valid_file();
-	test_get_integer_part();
-	test_get_float_part();
-	test_is_valid_float_number();
-	test_ft_atof();
-	test_is_valid_element_type();
-	test_split_len();
-	test_validate_element_a();
-	test_validate_element_l();
-	test_validate_element_c();
-	test_validate_rgb();
-	test_validate_sp();
+	(void)s;
+	// int	degrees;
+
+	// if (!s || split_len(s) != 4)
+	// 	return (false);
+	// if (validate_coord(s[1]) == false || validate_3d_normalized_vector(s[2]) == false)
+	// 	return (false);
+	// if (ft_str_isdigit(s[3]) == 0)
+	// 	return (false);
+	// degrees = ft_atoi(s[3]);
+	// return (is_valid_angle(degrees));
+	return (true);
 }

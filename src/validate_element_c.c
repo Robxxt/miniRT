@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:09:18 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 07:54:39 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 08:35:58 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ bool	is_valid_angle(int d)
 }
 
 /*
-Returns true if is a valid formatted L element.
+Returns true if is a valid formatted C element.
 */
 bool	validate_element_c(char **s)
 {
