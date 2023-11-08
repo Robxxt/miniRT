@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:31:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 15:08:40 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 15:29:24 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ bool	check_element(char **s)
 	return (true);
 }
 
+/*
+Sets the first 3 numbers of a list to be 0.
+*/
 void	fill_with_zeros(int *lst)
 {
 	int	i;
