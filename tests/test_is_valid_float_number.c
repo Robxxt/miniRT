@@ -15,7 +15,7 @@
 void	test_is_valid_float_number(void)
 {
 	int	counter = 0;
-	int	total_tests = 21;
+	int	total_tests = 22;
 	printf("test_is_valid_float_number:\n");
 
 	if (is_valid_float_number("") == false)
@@ -102,6 +102,10 @@ void	test_is_valid_float_number(void)
 		counter++;
 	else
 		printf("ERROR: test_is_valid_float_number(\"-2147483648\") == false 💥\n");
+	if (is_valid_float_number("a") == false)
+		counter++;
+	else
+		printf("ERROR: test_is_valid_float_number(\"a\") == false 💥\n");
 	if (counter == total_tests)
 		printf("✅\n");
 	else

@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 17:08:59 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 07:55:16 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,13 @@ bool	is_valid_file_extension(char *filename);
 bool	is_valid_file(char *filename);
 bool	is_valid_float_number(char *str);
 bool	is_valid_element_type(char *type);
+bool	validate_rgb(char *s);
+bool	validate_coord(char *s);
 bool	validate_element_a(char **s);
 bool	validate_element_l(char **s);
+bool	validate_element_c(char **s);
 bool	has_valid_content(t_list *lst);
-bool	validate_rgb(char *s);
+bool	is_valid_angle(int d);
 
 int		get_integer_part(char *str);
 float	get_float_part(char *str);
@@ -141,5 +144,6 @@ void	test_split_len(void);
 void	test_validate_rgb(void);
 void	test_validate_element_a(void);
 void	test_validate_element_l(void);
+void	test_validate_element_c(void);
 
 #endif

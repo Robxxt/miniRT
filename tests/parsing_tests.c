@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 08:24:22 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 11:48:55 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 07:20:56 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	parsing_tests(void)
 	test_split_len();
 	test_validate_element_a();
 	test_validate_element_l();
+	test_validate_element_c();
 	test_validate_rgb();
 }
