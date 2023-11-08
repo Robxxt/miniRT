@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:54:25 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 16:30:00 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 17:07:20 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,13 @@ void	populate_c(t_image *image, char **node_content)
 
 void	populate_l(t_image *image, char **node_content)
 {
-	(void)image;
-	(void)node_content;
+	float	lb;
+
+	read_float_list(image->light.pos, node_content[1]);
+	lb = ft_atof(node_content[2]);
+	image->light.lb = lb;
+	read_int_list(image->light.rgb, node_content[3]);
+	
 	printf("Populating l...\n");
 }
 

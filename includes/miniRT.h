@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 16:26:30 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 17:06:07 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ lb: Light brightness ratio => range: [0.0, 1.0]
 typedef	struct s_light
 {
 	float	pos[3];
-	float	lb[3];
+	float	lb;
 	int		rgb[3];
 }	t_light;
 

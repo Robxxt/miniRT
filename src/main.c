@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 16:33:11 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 17:07:37 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,13 @@ int	main(int argc, char **argv)
 	print_float_lst(image->camara.pos);
 	printf("nv:");
 	print_float_lst(image->camara.nv);
+
+	printf("Light:\n");
+	printf("Pos:");
+	print_float_lst(image->light.pos);
+	printf("> lb: %f\n", image->light.lb);
+	print_rgb(image->light.rgb);
+
 	if (image)
 	{
 		free(image);
