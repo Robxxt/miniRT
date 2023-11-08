@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 16:23:55 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 16:33:11 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,22 @@ void	clear_lst(t_list *lst)
 	free(lst);
 }
 
+//  ONLY FOR DEBUGGING
+void	print_rgb(int *lst)
+{
+	for (int i = 0; i < 3; i++)
+		printf(" %d", lst[i]);
+	printf("\n");
+}
+
+//  ONLY FOR DEBUGGING
+void	print_float_lst(float *lst)
+{
+	for (int i = 0; i < 3; i++)
+		printf(" %f", lst[i]);
+	printf("\n");
+}
+
 int	main(int argc, char **argv)
 {
 	parsing_tests();
@@ -49,8 +65,16 @@ int	main(int argc, char **argv)
 	if (init_check(argc, argv) == false)
 		return (1);
 	image = parser(argv);
+	printf("Ambient:\n");
 	printf("> r: %f\n", image->ambient.r);
-	printf("> rgb: %d %d %d\n", image->ambient.rgb[0], image->ambient.rgb[1], image->ambient.rgb[2]);	
+	print_rgb(image->ambient.rgb);
+
+	printf("Camara:\n");
+	printf("> fv: %d\n", image->camara.fv);
+	printf("Pos:");
+	print_float_lst(image->camara.pos);
+	printf("nv:");
+	print_float_lst(image->camara.nv);
 	if (image)
 	{
 		free(image);

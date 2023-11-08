@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 16:10:44 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 16:26:30 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef	struct s_camara
 {
 	float	pos[3];
 	float	nv[3];
-	int		fv[3];
+	int		fv;
 }	t_camara;
 
 /*
@@ -133,6 +133,7 @@ int		split_len(char **s);
 t_image	*parser(char **argv);
 
 void	read_int_list(int *list, char *s);
+void	read_float_list(float *list, char *s);
 void	populate_context_elements(t_image *image, char **node_content, int node_type);
 
 

@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:54:25 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 16:23:49 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 16:30:00 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,19 @@ void	populate_a(t_image *image, char **node_content)
 
 void	populate_c(t_image *image, char **node_content)
 {
-	(void)node_content;
-	(void)image;
+	float	fv;
+
+	fv = ft_atof(node_content[3]);
+	image->camara.fv = fv;
+	read_float_list(image->camara.pos, node_content[1]);
+	read_float_list(image->camara.nv, node_content[2]);
 	printf("Populating c...\n");
 }
 
 void	populate_l(t_image *image, char **node_content)
 {
-	(void)node_content;
 	(void)image;
+	(void)node_content;
 	printf("Populating l...\n");
 }
 
