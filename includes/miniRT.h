@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 16:32:27 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/07 17:08:59 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ t_list	*get_file_content(int fd);
 int		split_len(char **s);
 bool    is_valid_int_list(char **list, bool (*function)(char *, int));
 bool    is_valid_float_list(char **list, bool (*function)(char *, float));
+bool	validate_coord(char *s);
+
 
 // Debugging info
 void	print_lst(t_list *lst);
