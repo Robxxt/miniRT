@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:46:47 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 07:19:18 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 07:40:13 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ bool	validate_coord(char *s)
 	char	**tmp_lst;
 
 	tmp_lst = ft_split(s, ',');
+	if (split_len(tmp_lst) != 3)
+		return (false);
 	if (is_valid_float_list(tmp_lst, is_valid_coor) == false)
 	{
 		free_split(tmp_lst);
