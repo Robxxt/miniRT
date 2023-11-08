@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/11/08 14:45:33 by rdragan          ###   ########.fr        #
+#    Updated: 2023/11/08 16:17:36 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ SRC		=	src/main.c \
 			src/validate_pl.c \
 			src/validate_cy.c \
 			src/parser.c \
+			src/populate_context_elements.c \
+			src/read_list.c \
 			tests/parsing_tests.c \
 			tests/test_is_valid_file_extension.c \
 			tests/test_is_valid_file.c \

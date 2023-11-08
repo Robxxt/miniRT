@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 14:59:54 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/08 16:23:55 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ int	main(int argc, char **argv)
 	if (init_check(argc, argv) == false)
 		return (1);
 	image = parser(argv);
-	printf("image ptr: %p\n", image);
+	printf("> r: %f\n", image->ambient.r);
+	printf("> rgb: %d %d %d\n", image->ambient.rgb[0], image->ambient.rgb[1], image->ambient.rgb[2]);	
+	if (image)
+	{
+		free(image);
+	}
 	return (0);
 }
