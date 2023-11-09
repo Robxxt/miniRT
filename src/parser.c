@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:40:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 16:04:51 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/09 07:21:18 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	populate_image(t_image *image, t_list *node)
 		return ;
 	else if (node_type <= 3)
 		populate_context_elements(image, node_content, node_type);
+	else
+		populate_objects(image, node_content, node_type);
 }
 
 t_image	*get_image(t_list *lst)

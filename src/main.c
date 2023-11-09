@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 17:07:37 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/09 07:34:14 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,24 +65,48 @@ int	main(int argc, char **argv)
 	if (init_check(argc, argv) == false)
 		return (1);
 	image = parser(argv);
-	printf("Ambient:\n");
-	printf("> r: %f\n", image->ambient.r);
-	print_rgb(image->ambient.rgb);
-
-	printf("Camara:\n");
-	printf("> fv: %d\n", image->camara.fv);
-	printf("Pos:");
-	print_float_lst(image->camara.pos);
-	printf("nv:");
-	print_float_lst(image->camara.nv);
-
-	printf("Light:\n");
-	printf("Pos:");
-	print_float_lst(image->light.pos);
-	printf("> lb: %f\n", image->light.lb);
-	print_rgb(image->light.rgb);
-
 	if (image)
+	{
+		printf("Ambient:\n");
+		printf("> r: %f\n", image->ambient.r);
+		print_rgb(image->ambient.rgb);
+
+		printf("Camara:\n");
+		printf("> fv: %d\n", image->camara.fv);
+		printf("Pos:");
+		print_float_lst(image->camara.pos);
+		printf("nv:");
+		print_float_lst(image->camara.nv);
+
+		printf("Light:\n");
+		printf("Pos:");
+		print_float_lst(image->light.pos);
+		printf("> lb: %f\n", image->light.lb);
+		print_rgb(image->light.rgb);
+
+		printf("Sp:\n");
+		printf("Pos:");
+		print_float_lst(image->sphere.pos);
+		printf("> d: %f\n", image->sphere.d);
+		print_rgb(image->sphere.rgb);
+
+		printf("Pl:\n");
+		printf("Pos:");
+		print_float_lst(image->plane.pos);
+		printf("Nv:");
+		print_float_lst(image->plane.nv);
+		print_rgb(image->plane.rgb);
+
+		printf("Cy:\n");
+		printf("Pos:");
+		print_float_lst(image->cylinder.pos);
+		printf("Nv:");
+		print_float_lst(image->cylinder.nv);
+		printf("diameter: %f\nheight: %f\n", image->cylinder.d, image->cylinder.h);
+		print_rgb(image->cylinder.rgb);
+	}
+
+	if (image != NULL)
 	{
 		free(image);
 	}

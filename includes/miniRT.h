@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 17:06:07 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/09 07:16:25 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ t_image	*parser(char **argv);
 void	read_int_list(int *list, char *s);
 void	read_float_list(float *list, char *s);
 void	populate_context_elements(t_image *image, char **node_content, int node_type);
+void	populate_objects(t_image *image, char **node_content, int node_type);
 
 
 void	clear_lst(t_list *lst);
