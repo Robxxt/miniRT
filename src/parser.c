@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:40:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/09 07:21:18 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/09 08:18:27 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ t_image	*get_image(t_list *lst)
 	image = (t_image *)malloc(sizeof(t_image));
 	if (!image)
 		return (NULL);
+	image->sphere.exists = false;
+	image->plane.exists = false;
+	image->cylinder.exists = false;
 	tmp = lst;
 	while (tmp)
 	{

@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/09 07:16:25 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/09 08:09:22 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ rgb: color representation => [red, green, blue] => color range: [0, 255]
 */
 typedef	struct s_sphere
 {
+	bool	exists;
 	float	pos[3];
 	float	d;
 	int		rgb[3];
@@ -73,6 +74,7 @@ rgb: color representation => [red, green, blue] => color range: [0, 255]
 */
 typedef	struct s_plane
 {
+	bool	exists;
 	float	pos[3];
 	float	nv[3];
 	int		rgb[3];
@@ -87,6 +89,7 @@ rgb: color representation => [red, green, blue] => color range: [0, 255]
 */
 typedef	struct s_cylinder
 {
+	bool	exists;
 	float	pos[3];
 	float	nv[3];
 	float	d;
