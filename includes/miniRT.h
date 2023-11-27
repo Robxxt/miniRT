@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/27 18:54:04 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/11/27 19:37:46 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ typedef	struct s_image
 	t_sphere	sphere;
 	t_plane		plane;
 	t_cylinder	cylinder;
-	t_cube	cube;
+	t_cube		cube;
 }	t_image;
 
 
@@ -141,6 +141,13 @@ typedef struct s_pixel
 	int		y;
 }	t_pixel;
 
+typedef struct s_vector
+{
+	float	x;
+	float	y;
+	float	z;
+}	t_vector;
+
 # define SCREEN_X 1920
 # define SCREEN_Y 1200
 # define ASP_RATIO 1.6f
@@ -158,8 +165,8 @@ bool	validate_element_l(char **s);
 bool	validate_element_c(char **s);
 bool	has_valid_content(t_list *lst);
 bool	is_valid_angle(int d);
-bool    is_valid_int_list(char **list, bool (*function)(char *, int));
-bool    is_valid_float_list(char **list, bool (*function)(char *, float));
+bool	is_valid_int_list(char **list, bool (*function)(char *, int));
+bool	is_valid_float_list(char **list, bool (*function)(char *, float));
 bool	validate_coord(char *s);
 bool	validate_3d_normalized_vector(char *s);
 bool	validate_sp(char **s);

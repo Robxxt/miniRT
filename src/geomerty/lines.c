@@ -6,32 +6,30 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:58:11 by tiqin             #+#    #+#             */
-/*   Updated: 2023/11/27 18:19:55 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/11/27 21:11:43 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/miniRT.h"
 
-float	distance2(float a[3], float b[3])
+float	distance2(t_vector a, t_vector b)
 {
 	float	re;
 
 	re = 0;
-	re += (a[0] - b[0]) * (a[0] - b[0]);
-	re += (a[1] - b[1]) * (a[1] - b[1]);
-	re += (a[2] - b[2]) * (a[2] - b[2]);
+	re += (a.x - b.x) * (a.x - b.x);
+	re += (a.y - b.y) * (a.y - b.y);
+	re += (a.z - b.z) * (a.z - b.z);
 	return (re);
 }
 
-float	distance(float a[3], float b[3])
+float	distance(t_vector a, t_vector b)
 {
 	float	re;
 
 	re = 0;
-	re += (a[0] - b[0]) * (a[0] - b[0]);
-	re += (a[1] - b[1]) * (a[1] - b[1]);
-	re += (a[2] - b[2]) * (a[2] - b[2]);
+	re += (a.x - b.x) * (a.x - b.x);
+	re += (a.y - b.y) * (a.y - b.y);
+	re += (a.z - b.z) * (a.z - b.z);
 	return (sqrtf(re));
 }
-
-void	get_pptl()

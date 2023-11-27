@@ -6,19 +6,24 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 18:22:50 by tiqin             #+#    #+#             */
-/*   Updated: 2023/11/27 19:17:40 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/11/27 20:53:44 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/miniRT.h"
 
-float	model(float a[3])
+float	model(t_vector a)
 {
-	return (sqrtf(a[0] * a[0] + a[1] * a[1] + a[2] * a[2]));
+	return (sqrtf(a.x * a.x + a.y * a.y + a.z * a.z));
 }
 
-float[3]	normized(float a[3])
+t_vector	normized(t_vector a)
 {
-	float b[3];
-	return b;
+	float	mod;
+
+	mod = model(a);
+	a.x = a.x / mod;
+	a.y = a.y / mod;
+	a.z = a.z / mod;
+	return (a);
 }
