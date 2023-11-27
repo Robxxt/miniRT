@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 08:14:53 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 05:07:45 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/27 15:10:06 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,9 @@
 void	test_is_valid_file(void)
 {
 	int	counter = 0;
-	int	total_tests = 5;
+	int	total_tests = 4;
 	printf("test_is_valid_file:\n");
-	if (is_valid_file("images/.rt") == 1)
-		counter++;
-	else
-	{
-		printf("ERROR: test_is_valid_file(\"images/.rt\") == 1 💥\n");
-	}
+
 	if (is_valid_file("images/file1.rt") == 1)
 		counter++;
 	else

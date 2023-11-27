@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/09 08:22:36 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/27 15:19:18 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,17 @@ void	print_img_info(t_image *image)
 			print_float_lst(image->cylinder.nv);
 			printf("diameter: %f\nheight: %f\n", image->cylinder.d, image->cylinder.h);
 			print_rgb(image->cylinder.rgb);
+		}
+		printf("Cb:\n");
+		printf("exists: %d\n", image->cube.exists);
+		if (image->cube.exists)
+		{
+			printf("Pos:");
+			print_float_lst(image->cube.pos);
+			printf("Nv:");
+			print_float_lst(image->cube.nv);
+			printf("Rgb:");
+			print_rgb(image->cube.rgb);
 		}
 	}
 }

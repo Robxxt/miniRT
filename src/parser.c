@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:40:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/09 08:18:27 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/27 15:18:32 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Returns the type of the node.
 4: pl
 5: sp
 6: cy
+7: cb
 -1: failed
 */
 int	get_node_type(t_list *node)
@@ -36,6 +37,8 @@ int	get_node_type(t_list *node)
 		return (5);
 	if (ft_strncmp("cy", ((char **)node->content)[0], 3) == 0)
 		return (6);
+	if (ft_strncmp("cb", ((char **)node->content)[0], 3) == 0)
+		return (7);
 	return (-1);
 }
 
@@ -68,6 +71,7 @@ t_image	*get_image(t_list *lst)
 	image->sphere.exists = false;
 	image->plane.exists = false;
 	image->cylinder.exists = false;
+	image->cube.exists = false;
 	tmp = lst;
 	while (tmp)
 	{
