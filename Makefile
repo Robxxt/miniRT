@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/11/09 07:19:02 by rdragan          ###   ########.fr        #
+#    Updated: 2023/11/27 15:04:06 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC		=	src/main.c \
 			src/validate_sp.c \
 			src/validate_pl.c \
 			src/validate_cy.c \
+			src/validate_cb.c \
 			src/parser.c \
 			src/populate_context_elements.c \
 			src/read_list.c \
