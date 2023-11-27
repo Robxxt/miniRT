@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lines.c                                            :+:      :+:    :+:   */
+/*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 12:58:11 by tiqin             #+#    #+#             */
-/*   Updated: 2023/11/27 18:19:55 by tiqin            ###   ########.fr       */
+/*   Created: 2023/11/27 18:22:50 by tiqin             #+#    #+#             */
+/*   Updated: 2023/11/27 19:17:40 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/miniRT.h"
 
-float	distance2(float a[3], float b[3])
+float	model(float a[3])
 {
-	float	re;
-
-	re = 0;
-	re += (a[0] - b[0]) * (a[0] - b[0]);
-	re += (a[1] - b[1]) * (a[1] - b[1]);
-	re += (a[2] - b[2]) * (a[2] - b[2]);
-	return (re);
+	return (sqrtf(a[0] * a[0] + a[1] * a[1] + a[2] * a[2]));
 }
 
-float	distance(float a[3], float b[3])
+float[3]	normized(float a[3])
 {
-	float	re;
-
-	re = 0;
-	re += (a[0] - b[0]) * (a[0] - b[0]);
-	re += (a[1] - b[1]) * (a[1] - b[1]);
-	re += (a[2] - b[2]) * (a[2] - b[2]);
-	return (sqrtf(re));
+	float b[3];
+	return b;
 }
-
-void	get_pptl()
