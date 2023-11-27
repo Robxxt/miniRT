@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/09 08:09:22 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/11/27 13:31:52 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,35 @@ typedef	struct s_image
 	t_cylinder	cylinder;
 }	t_image;
 
+
+typedef struct s_vars
+{
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		l_len;
+	int		edn;
+	t_image	*objs;
+}	t_vars;
+
+typedef struct s_line
+{
+	float	pos[3];
+	float	nv[3];
+}	t_line;
+
+typedef struct s_pixel
+{
+	int		x;
+	int		y;
+}	t_pixel;
+
+# define SCREEN_X 1920
+# define SCREEN_Y 1200
+# define ASP_RATIO 1.6f
+# define RASP_RATIO 0.625f
 
 // Validate functions
 bool	is_valid_file_extension(char *filename);
