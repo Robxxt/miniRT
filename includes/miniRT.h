@@ -116,7 +116,9 @@ typedef	struct s_image
 	t_cube		cube;
 }	t_image;
 
-
+/*
+**minilibx vars
+*/
 typedef struct s_vars
 {
 	void	*mlx;
@@ -129,17 +131,23 @@ typedef struct s_vars
 	t_image	*objs;
 }	t_vars;
 
-typedef struct s_line
-{
-	float	pos[3];
-	float	nv[3];
-}	t_line;
-
 typedef struct s_pixel
 {
 	int		x;
 	int		y;
 }	t_pixel;
+
+typedef struct s_color
+{
+	int	bright;
+	int	r;
+	int	g;
+	int b;
+}	t_color;
+
+/*
+** 3D objects
+*/
 
 typedef struct s_vector
 {
@@ -148,10 +156,84 @@ typedef struct s_vector
 	float	z;
 }	t_vector;
 
+typedef struct s_line
+{
+	t_vector	pos;
+	t_vector	nv;
+}	t_line;
+
+typedef struct panel
+{
+	bool		exists;
+	t_vector	pos;
+	t_vector	nv;
+	t_color		rgb;
+	int			texture;
+}	t_line;
+
+typedef struct s_ray
+{
+	t_vector	pos;
+	t_vector	nv;
+	bool		end;
+	t_color		rgb;
+}	t_ray;
+
+typedef struct s_circle
+{
+	t_vector	pos;
+	t_vector	nv;
+	float		radii;
+}	t_circle;
+
+typedef struct s_sp
+{
+	t_vector	pos;
+	float		radii;
+	t_color		rgb;
+	int			texture;
+}	t_sp;
+
+typedef	struct s_cylind
+{
+	bool		exists;
+	t_vector	pos;
+	float		radii;
+	t_circle	up;
+	t_circle	down;
+	t_color		rgb;
+	int			texture;
+}	t_cylind;
+
+typedef struct cub
+{
+	bool		exists;
+	t_vector	pos;
+	t_vector	nv;
+	float		size;
+	t_line		side[6];
+	t_color		rgb;
+	char		texture;
+}	cub;
+
+/*
+** rendering resolution
+*/
+
 # define SCREEN_X 1920
 # define SCREEN_Y 1200
 # define ASP_RATIO 1.6f
 # define RASP_RATIO 0.625f
+
+// Vector
+
+float	module2(t_vector *a);
+float	module(t_vector *a);
+t_vector	normized(t_vector a);
+t_vector	v_product(t_vector *a, float b);
+t_vector	v_plus(t_vector *a, t_vector *b);
+t_vector	v_minus(t_vector *a, t_vector *b);
+float	dot_product(t_vector *a, t_vector *b);
 
 // Validate functions
 bool	is_valid_file_extension(char *filename);

@@ -12,24 +12,24 @@
 
 #include "../../includes/miniRT.h"
 
-float	distance2(t_vector a, t_vector b)
+float	distance2(t_vector *a, t_vector *b)
 {
 	float	re;
 
 	re = 0;
-	re += (a.x - b.x) * (a.x - b.x);
-	re += (a.y - b.y) * (a.y - b.y);
-	re += (a.z - b.z) * (a.z - b.z);
+	re += (a->x - b->x) * (a->x - b->x);
+	re += (a->y - b->y) * (a->y - b->y);
+	re += (a->z - b->z) * (a->z - b->z);
 	return (re);
 }
 
-float	distance(t_vector a, t_vector b)
+float	distance(t_vector *a, t_vector *b)
 {
 	float	re;
 
 	re = 0;
-	re += (a.x - b.x) * (a.x - b.x);
-	re += (a.y - b.y) * (a.y - b.y);
-	re += (a.z - b.z) * (a.z - b.z);
+	re += (a->x - b->x) * (a->x - b->x);
+	re += (a->y - b->y) * (a->y - b->y);
+	re += (a->z - b->z) * (a->z - b->z);
 	return (sqrtf(re));
 }
