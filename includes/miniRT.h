@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/27 19:37:46 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/11 23:53:29 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,13 +203,14 @@ typedef struct s_circle
 
 typedef struct s_sp
 {
+	bool		exists;
 	t_vector	pos;
 	float		radii;
 	t_color		rgb;
 	char		texture;
 }	t_sp;
 
-typedef	struct s_cylind
+typedef struct s_cylind
 {
 	bool		exists;
 	t_vector	pos;
@@ -273,6 +274,10 @@ float	distance(t_vector *a, t_vector *b);
 // color
 t_color	color_reflect(t_color *a, t_color *b);
 t_color	color_mix(t_color *a, t_color *b);
+
+// tracing
+t_surface	trace_pl(t_panel *pl, t_ray *ray);
+
 // Validate functions
 bool	is_valid_file_extension(char *filename);
 bool	is_valid_file(char *filename);

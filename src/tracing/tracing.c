@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tracing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/11 22:26:49 by tiqin             #+#    #+#             */
+/*   Updated: 2023/12/11 23:03:59 by tiqin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/miniRT.h"
 
 t_surface	min_traces(t_surface *tmp, t_ray *ray)
@@ -30,7 +42,7 @@ t_surface	trace_obj(t_space *space, t_ray *ray)
 	t_surface	re;
 	t_surface	tmp[4];
 
-	tmp[0] = trace_pl(space->pl, ray);
+	tmp[0] = trace_pl(&space->pl, ray);
 	tmp[1] = trace_sp(space->sp, ray);
 	tmp[2] = trace_cyl(space->cylind, ray);
 	tmp[3] = trace_cub(space->cylind, ray);
@@ -70,7 +82,7 @@ t_color	get_color(t_space *space, t_ray *ray, int i)
 	if (is_end(space, &end, i))
 		return (re);
 	re = color_reflect(&point.rgb, &space->lit[i]);
-	re.bright = re.bright * 0.5f * (1.0f - dot_product(&end, ray));
+	re.bright = (int)(re.bright * 0.5f * (1.0f - dot_product(&end, &ray->nv)));
 	return (re);
 }
 
@@ -89,5 +101,13 @@ t_color	trace_rays(t_space *space, t_ray ray, int i)
 	}
 	if (isnan(tmp.pos.x))
 		return (re);
-	return get_color(space, &ray, i);
+	return (get_color(space, &ray, i));
+}
+
+t_ray	next_ray(t_space *space, t_ray *ray)
+{
+	t_ray	re;
+
+	re.rgb = get_color();
+	re.pos = ray->pos;
 }

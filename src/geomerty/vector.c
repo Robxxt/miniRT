@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 18:22:50 by tiqin             #+#    #+#             */
-/*   Updated: 2023/11/27 20:53:44 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/11 21:31:26 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_vector	normized(t_vector a)
 
 t_vector	v_product(t_vector *a, float b)
 {
-	t_vector re;
+	t_vector	re;
 
 	re.x = a->x * b;
 	re.y = a->y * b;
@@ -45,7 +45,7 @@ t_vector	v_product(t_vector *a, float b)
 
 t_vector	v_plus(t_vector *a, t_vector *b)
 {
-	t_vector re;
+	t_vector	re;
 
 	re.x = a->x + b->x;
 	re.y = a->y + b->y;
@@ -55,7 +55,7 @@ t_vector	v_plus(t_vector *a, t_vector *b)
 
 t_vector	v_minus(t_vector *a, t_vector *b)
 {
-	t_vector re;
+	t_vector	re;
 
 	re.x = a->x - b->x;
 	re.y = a->y - b->y;
