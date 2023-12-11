@@ -105,6 +105,11 @@ typedef	struct s_cube
 	int		rgb[3];
 }	t_cube;
 
+typedef	struct s_ambt
+{
+	t_color	rgb;
+}	t_ambt;
+
 typedef	struct s_image
 {
 	t_ambient	ambient;
@@ -139,15 +144,17 @@ typedef struct s_pixel
 
 typedef struct s_color
 {
-	int	bright;
-	int	r;
-	int	g;
-	int b;
+	unsigned int	bright;
+	unsigned int	r;
+	unsigned int	g;
+	unsigned int	b;
 }	t_color;
 
 /*
 ** 3D objects
 */
+
+# define DEG_RAD 0.0174532925f
 
 typedef struct s_vector
 {
@@ -162,14 +169,22 @@ typedef struct s_line
 	t_vector	nv;
 }	t_line;
 
-typedef struct panel
+typedef struct s_surface
+{
+	t_vector	pos;
+	t_vector	nv;
+	t_color		rgb;
+	char		texture;
+}	t_surface;
+
+typedef struct s_panel
 {
 	bool		exists;
 	t_vector	pos;
 	t_vector	nv;
 	t_color		rgb;
-	int			texture;
-}	t_line;
+	char		texture;
+}	t_panel;
 
 typedef struct s_ray
 {
@@ -191,7 +206,7 @@ typedef struct s_sp
 	t_vector	pos;
 	float		radii;
 	t_color		rgb;
-	int			texture;
+	char		texture;
 }	t_sp;
 
 typedef	struct s_cylind
@@ -202,10 +217,10 @@ typedef	struct s_cylind
 	t_circle	up;
 	t_circle	down;
 	t_color		rgb;
-	int			texture;
+	char		texture;
 }	t_cylind;
 
-typedef struct cub
+typedef struct s_cub
 {
 	bool		exists;
 	t_vector	pos;
@@ -214,7 +229,24 @@ typedef struct cub
 	t_line		side[6];
 	t_color		rgb;
 	char		texture;
-}	cub;
+}	t_cub;
+
+typedef	struct s_lit
+{
+	t_vector	pos;
+	t_color		rgb;
+}	t_lit;
+
+typedef struct	s_space
+{
+	t_ambient	ambient;
+	t_camara	camara;
+	t_lit		*lit;
+	t_sp		sp;
+	t_panel		pl;
+	t_cylind	cylind;
+	t_cub		cub;
+}	t_space;
 
 /*
 ** rendering resolution
@@ -235,6 +267,12 @@ t_vector	v_plus(t_vector *a, t_vector *b);
 t_vector	v_minus(t_vector *a, t_vector *b);
 float	dot_product(t_vector *a, t_vector *b);
 
+float	distance2(t_vector *a, t_vector *b);
+float	distance(t_vector *a, t_vector *b);
+
+// color
+t_color	color_reflect(t_color *a, t_color *b);
+t_color	color_mix(t_color *a, t_color *b);
 // Validate functions
 bool	is_valid_file_extension(char *filename);
 bool	is_valid_file(char *filename);
