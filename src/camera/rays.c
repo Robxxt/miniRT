@@ -55,10 +55,10 @@ t_vector	camera_nv(t_camara *cmr, float aph, float beta)
 
 	if (cmr->pos[2] == 1.0f)
 	{
-		re.x = 0.0f;
-		re.y = 0.0f;
+		re.x = tanf(aph);
+		re.y = tanf(beta);
 		re.z = 1.0f;
-		return (re);
+		return (normized(re));
 	}
 	re.x = cmr->nv[0];
 	re.y = cmr->nv[1];
@@ -81,9 +81,8 @@ t_ray	camera_ray(t_camara *cmr, t_pixel *pix)
 	re.pos.y = cmr->pos[1];
 	re.pos.z = cmr->pos[2];
 	re.end = false;
-	anglx = (float)cmr->fv / (float)(pix->x - SCREEN_X / 2);
-	angly = RASP_RATIO * (float)cmr->fv / (float)(pix->y - SCREEN_X / 2);
-
+	anglx = (float)cmr->fv / (float)(pix->x - SCREEN_X / 2) * DEG_RAD;
+	angly = RASP_RATIO * (float)cmr->fv / (float)(pix->y - SCREEN_X / 2) * DEG_RAD;
 	re.nv = camera_nv(cmr, anglx, angly);
 	return (re);
 }
