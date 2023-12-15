@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/11 23:53:29 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/15 02:56:38 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h> // To remove!!!
+
+# include "../mlx/mlx.h"
 
 /*
 r: Lighting ratio => range: [0.0, 1.0]
@@ -105,11 +107,6 @@ typedef	struct s_cube
 	int		rgb[3];
 }	t_cube;
 
-typedef	struct s_ambt
-{
-	t_color	rgb;
-}	t_ambt;
-
 typedef	struct s_image
 {
 	t_ambient	ambient;
@@ -177,6 +174,11 @@ typedef struct s_surface
 	char		texture;
 }	t_surface;
 
+typedef	struct s_ambt
+{
+	t_color	rgb;
+}	t_ambt;
+
 typedef struct s_panel
 {
 	bool		exists;
@@ -214,20 +216,23 @@ typedef struct s_cylind
 {
 	bool		exists;
 	t_vector	pos;
+	t_vector	nv;
 	float		radii;
 	t_circle	up;
 	t_circle	down;
 	t_color		rgb;
 	char		texture;
+	float		height;
 }	t_cylind;
 
 typedef struct s_cub
 {
 	bool		exists;
 	t_vector	pos;
-	t_vector	nv;
+	t_vector	nv1;
+	t_vector	nv2;
 	float		size;
-	t_line		side[6];
+	t_line		side[7];
 	t_color		rgb;
 	char		texture;
 }	t_cub;
@@ -238,11 +243,18 @@ typedef	struct s_lit
 	t_color		rgb;
 }	t_lit;
 
+typedef	struct s_cmr
+{
+	t_vector	pos;
+	t_vector	nv;
+	int		fv;
+}	t_cmr;
+
 typedef struct	s_space
 {
-	t_ambient	ambient;
-	t_camara	camara;
-	t_lit		*lit;
+	t_ambt		ambient;
+	t_cmr		cmr;
+	t_lit		lit[17];
 	t_sp		sp;
 	t_panel		pl;
 	t_cylind	cylind;
@@ -267,16 +279,32 @@ t_vector	v_product(t_vector *a, float b);
 t_vector	v_plus(t_vector *a, t_vector *b);
 t_vector	v_minus(t_vector *a, t_vector *b);
 float	dot_product(t_vector *a, t_vector *b);
+t_vector	cross_product(t_vector *a, t_vector *b);
 
 float	distance2(t_vector *a, t_vector *b);
 float	distance(t_vector *a, t_vector *b);
 
 // color
+void	paint_pixel(t_vars *vars, t_pixel pos, int color);
 t_color	color_reflect(t_color *a, t_color *b);
 t_color	color_mix(t_color *a, t_color *b);
+unsigned int	get_color(t_color *rgb);
+t_color	color_normized(t_color *a, unsigned int n);
+// t_color	color_normized(t_color *a, unsigned int n, int i);
 
 // tracing
+t_ray	camera_ray(t_cmr *cmr, t_pixel *pix);
 t_surface	trace_pl(t_panel *pl, t_ray *ray);
+t_surface	trace_sp(t_sp *sp, t_ray *ray);
+t_surface	trace_cyl(t_cylind *cylind, t_ray *ray);
+t_surface	trace_cub(t_cub *cub, t_ray *ray);
+t_color		trace_rays(t_space *space, t_ray ray, int i);
+
+// solve function
+float	delta(float a, float b, float c);
+float	root_minus(float a, float b, float c);
+float	root_plus(float a, float b, float c);
+float	min_root(float a, float b, float c);
 
 // Validate functions
 bool	is_valid_file_extension(char *filename);

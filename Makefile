@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
+#    By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/11/27 15:04:06 by rdragan          ###   ########.fr        #
+#    Updated: 2023/12/13 09:01:34 by tiqin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,19 @@ SRC		=	src/main.c \
 			tests/test_split_len.c \
 			tests/test_validate_sp.c \
 			tests/test_validate_pl.c \
-			tests/test_validate_cy.c
+			tests/test_validate_cy.c \
+			src/camera/rays.c \
+			src/color/color.c \
+			src/function/quadratic.c \
+			src/geomerty/lines.c \
+			src/geomerty/vector.c \
+			src/tracing/cube.c \
+			src/tracing/cylinder.c \
+			src/tracing/panel.c \
+			src/tracing/sphere.c \
+			src/tracing/tracing.c \
+			src/mlx/paint_img.c
+
 OBJ		=	$(SRC:.c=.o)
 CFLAGS	=	-Wall -Werror -Wextra -g
 LIBFT_PATH	=	libs/libft
@@ -57,13 +69,17 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT_ARCHIVE_PATH) 
 	@ echo "Compiling ..."
-	@ $(CC) $(LIBFT_ARCHIVE_PATH) $^ -o $(NAME)
+	make -C mlx/
+	$(CC) $(LIBFT_ARCHIVE_PATH) $^ -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 $(LIBFT_ARCHIVE_PATH): $(LIBFT_PATH)
 	make -C $(LIBFT_PATH)
 
 $(BUILD_LIBFT):
 
+# test: $(LIBFT_ARCHIVE_PATH)
+# 	make -C mlx/
+# 	$(CC) $(CFLAGS) $(SRC) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	make -C $(LIBFT_PATH) clean
