@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 18:17:40 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 18:19:32 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 18:24:01 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../../includes/api.h"
 
 /*
-Handles the differences between t_sphere and t_sp
+Handles the differences between t_cylinder and t_cylind
 and fills p2 with the values from p1.
 */
 void	cylinder_to_cylind(t_cylinder p1, t_cylind* p2)

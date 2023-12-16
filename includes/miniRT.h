@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 18:13:09 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 18:28:50 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,6 @@ typedef	struct s_cylinder
 	int		rgb[3];
 }	t_cylinder;
 
-typedef	struct s_cube
-{
-	bool	exists;
-	float	pos[3];
-	float	nv[3];
-	int		rgb[3];
-}	t_cube;
-
 typedef	struct s_image
 {
 	t_ambient	ambient;
@@ -115,7 +107,6 @@ typedef	struct s_image
 	t_sphere	sphere;
 	t_plane		plane;
 	t_cylinder	cylinder;
-	t_cube		cube;
 }	t_image;
 
 /*
