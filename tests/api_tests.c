@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:08:17 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 15:42:11 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 15:51:38 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	test_ambient_to_ambt()
 		printf("✅");
 	else
 		printf("💥");
+	printf("\n");
 }
 
 void	api_tests()
