@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:08:17 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 16:50:49 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 17:01:40 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,28 @@ void	test_light_to_lit()
 	printf("\n");
 }
 
+void	test_sphere_to_sp()
+{
+	t_sphere	s1;
+	t_sp	s2;
+
+	printf("test_sphere_to_sp(): ");
+	s1.pos[0] = 0.1;
+	s1.pos[1] = 1.1;
+	s1.pos[2] = 2.1;
+	s1.rgb[0] = 0;
+	s1.rgb[1] = 1;
+	s1.rgb[2] = 2;
+	sphere_to_sp(s1, &(s2));
+	if (s1.pos[0] == s2.pos.x && s1.pos[1] == s2.pos.y && s1.pos[2] == s2.pos.z &&
+		(unsigned int)s1.rgb[0] == s2.rgb.r && (unsigned int)s1.rgb[1] == s2.rgb.g && (unsigned int)s1.rgb[2] == s2.rgb.b &&
+		s1.d == s2.radii)
+		printf("✅");
+	else
+		printf("💥");
+	printf("\n");
+}
+
 void	api_tests()
 {
 	test_rgb_to_color();
@@ -113,4 +135,5 @@ void	api_tests()
 	test_float_to_vector();
 	test_camara_to_cmr();
 	test_light_to_lit();
+	test_sphere_to_sp();
 }
