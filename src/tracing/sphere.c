@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 23:21:41 by tiqin             #+#    #+#             */
-/*   Updated: 2023/12/15 00:50:09 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/15 03:55:34 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,20 @@ t_color	check_board(t_vector *nv)
 	return (re);
 }
 
-t_color	bump(t_vector *nv)
+t_color	bump(t_sp *sp, t_vector *nv)
 {
 	int		zz;
-	int		ag;
 	t_color	re;
 
-	ft_bzero(&re, sizeof(re));
-	re.bright = 255U;
-	zz = roundf(asinf(nv->z) * 4.1f);
-	ag = roundf(atan2f(nv->x, nv->y) * 4.1f);
-	if ((zz + ag) % 2)
+	re = sp->rgb;
+	zz = roundf(nv->z * 100.0f);
+	re.bright = 216U;
+	if (zz > -50 && zz < 50)
 	{
-		re.r = 255U;
-		re.g = 255U;
-		re.b = 255U;
+		if (zz % 4 == 1)
+			re.bright = 128U;
+		if (zz % 4 == 3)
+			re.bright = 255U;
 	}
 	return (re);
 }
@@ -72,7 +71,7 @@ t_color	set_texture(t_sp *sp, t_vector *nv, char t)
 	if (t == 'c')
 		return (check_board(nv));
 	if (t == 'b')
-		return (bump(nv));
+		return (bump(sp, nv));
 	return (re);
 }
 
