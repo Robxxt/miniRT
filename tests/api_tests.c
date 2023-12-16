@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:08:17 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 18:14:25 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 18:21:09 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,32 @@ void	test_plane_to_panel()
 	printf("\n");
 }
 
+void	test_cylinder_to_cylind()
+{
+	t_cylinder p1;
+	t_cylind	p2;
+
+	printf("test_cylinder_to_cylind(): ");
+	p1.exists = true;
+	p1.pos[0] = 0.1;
+	p1.pos[1] = 1.1;
+	p1.pos[2] = 2.1;
+	p1.rgb[0] = 0;
+	p1.rgb[1] = 1;
+	p1.rgb[2] = 2;
+	p1.nv[0] = 0;
+	p1.nv[1] = 1;
+	p1.nv[2] = 2;
+	cylinder_to_cylind(p1, &p2);
+	if (p1.pos[0] == p2.pos.x && p1.pos[1] == p2.pos.y && p1.pos[2] == p2.pos.z &&
+		(unsigned int)p1.rgb[0] == p2.rgb.r && (unsigned int)p1.rgb[1] == p2.rgb.g && (unsigned int)p1.rgb[2] == p2.rgb.b &&
+		 p1.exists == p2.exists && p2.radii == (p1.d / 2) && p1.h == p2.height)
+		printf("✅");
+	else
+		printf("💥");
+	printf("\n");
+}
+
 void	api_tests()
 {
 	test_rgb_to_color();
@@ -164,4 +190,5 @@ void	api_tests()
 	test_light_to_lit();
 	test_sphere_to_sp();
 	test_plane_to_panel();
+	test_cylinder_to_cylind();
 }

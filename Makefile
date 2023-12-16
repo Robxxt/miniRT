@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/12/16 17:29:48 by rdragan          ###   ########.fr        #
+#    Updated: 2023/12/16 18:17:28 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,8 @@ SRC		=	src/main.c \
 			src/api/camara_to_cmr.c \
 			src/api/light_to_lit.c \
 			src/api/sphere_to_sp.c \
-			src/api/plane_to_panel.c
+			src/api/plane_to_panel.c \
+			src/api/cylinder_to_cylind.c
 
 
 OBJ		=	$(SRC:.c=.o)
