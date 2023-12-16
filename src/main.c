@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 21:38:16 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 22:02:24 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,8 @@ int	main(int argc, char **argv)
 	if (init_check(argc, argv) == false)
 		return (1);
 	image = parser(argv);
+	if (image == NULL)
+		return (1);
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, SCREEN_X, SCREEN_Y, "miniRT");
 	vars.img = mlx_new_image(vars.mlx, SCREEN_X, SCREEN_Y);
