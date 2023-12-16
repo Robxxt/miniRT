@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:08:17 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 17:01:40 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 17:03:14 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	test_sphere_to_sp()
 	sphere_to_sp(s1, &(s2));
 	if (s1.pos[0] == s2.pos.x && s1.pos[1] == s2.pos.y && s1.pos[2] == s2.pos.z &&
 		(unsigned int)s1.rgb[0] == s2.rgb.r && (unsigned int)s1.rgb[1] == s2.rgb.g && (unsigned int)s1.rgb[2] == s2.rgb.b &&
-		s1.d == s2.radii)
+		s1.d == s2.radii && s1.exists == s2.exists)
 		printf("✅");
 	else
 		printf("💥");
