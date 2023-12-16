@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:26:49 by tiqin             #+#    #+#             */
-/*   Updated: 2023/12/16 16:01:18 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/16 16:29:34 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_surface	min_traces(t_surface *tmp, t_ray *ray)
 	min_dis = 3.4028235E38f;
 	i = -1;
 	re.pos.x = NAN;
-	while (++i < 4)
+	while (++i < 36)
 	{
 		if (!isnan(tmp[i].pos.x))
 		{
@@ -40,12 +40,18 @@ t_surface	min_traces(t_surface *tmp, t_ray *ray)
 t_surface	trace_obj(t_space *space, t_ray *ray)
 {
 	t_surface	re;
-	t_surface	tmp[4];
+	t_surface	tmp[36];
+	int			i;
 
-	tmp[0] = trace_pl(&space->pl, ray);
-	tmp[1] = trace_sp(&space->sp, ray);
-	tmp[2] = trace_cyl(&space->cylind, ray);
-	tmp[3] = trace_cub(&space->cub, ray);
+	i = 0;
+	while (i < 9)
+	{
+		tmp[i * 4 + 0] = trace_pl(&space->pl[i], ray);
+		tmp[i * 4 + 1] = trace_sp(&space->sp[i], ray);
+		tmp[i * 4 + 2] = trace_cyl(&space->cylind[i], ray);
+		tmp[i * 4 + 3] = trace_cub(&space->cub[i], ray);
+		i++;
+	}
 	re = min_traces(tmp, ray);
 	return (re);
 }

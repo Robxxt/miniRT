@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 15:58:53 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/16 16:34:14 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,6 +226,7 @@ void	set_cyd(t_cylind *cyd)
 void	all(t_vars *vars, void *mlx, void *mlx_win)
 {
 	t_space space;
+	ft_bzero(&space, sizeof(space));
 	// t_ambt abt;
 	// t_cmr cmr;
 	// t_cub cub;
@@ -254,23 +255,23 @@ void	all(t_vars *vars, void *mlx, void *mlx_win)
 	// space.cmr.pos.x = 0.0f;
 	// space.cmr.pos.y = 0.0f;
 
-	space.cub.exists = false;
-	space.cub.pos.x = -1.0f;
-	space.cub.pos.y = 1.0f;
-	space.cub.pos.z = 1.0f;
-	space.cub.nv1.x = 1.0f;
-	space.cub.nv1.y = 0.0f;
-	space.cub.nv1.z = 0.0f;
-	space.cub.nv2.x = 0.0f;
-	space.cub.nv2.y = 0.70710678f;
-	space.cub.nv2.z = 0.70710678f;
-	space.cub.size = 2.0f;
-	space.cub.texture = 'p';
-	space.cub.rgb.r = 255;
-	space.cub.rgb.g = 0;
-	space.cub.rgb.b = 0;
-	space.cub.rgb.bright = 255;
-	set_cube(&space.cub);
+	space.cub[0].exists = false;
+	space.cub[0].pos.x = -1.0f;
+	space.cub[0].pos.y = 1.0f;
+	space.cub[0].pos.z = 1.0f;
+	space.cub[0].nv1.x = 1.0f;
+	space.cub[0].nv1.y = 0.0f;
+	space.cub[0].nv1.z = 0.0f;
+	space.cub[0].nv2.x = 0.0f;
+	space.cub[0].nv2.y = 0.70710678f;
+	space.cub[0].nv2.z = 0.70710678f;
+	space.cub[0].size = 2.0f;
+	space.cub[0].texture = 'p';
+	space.cub[0].rgb.r = 255;
+	space.cub[0].rgb.g = 0;
+	space.cub[0].rgb.b = 0;
+	space.cub[0].rgb.bright = 255;
+	set_cube(&space.cub[0]);
 
 
 	// space.cub.exists = true;
@@ -291,47 +292,57 @@ void	all(t_vars *vars, void *mlx, void *mlx_win)
 	// space.cub.rgb.bright = 255;
 	// set_cube(&space.cub);
 
-	space.sp.exists = true;
-	space.sp.pos.x = 0.0f;
-	space.sp.pos.y = 0.5f;
-	space.sp.pos.z = 0.0f;
-	space.sp.rgb.r = 0U;
-	space.sp.rgb.g = 255U;
-	space.sp.rgb.b = 255U;
-	space.sp.rgb.bright = 255U;
-	space.sp.radii = 1.0f;
-	space.sp.texture = 'n';
+	space.sp[0].exists = true;
+	space.sp[0].pos.x = 0.0f;
+	space.sp[0].pos.y = 0.5f;
+	space.sp[0].pos.z = 0.0f;
+	space.sp[0].rgb.r = 0U;
+	space.sp[0].rgb.g = 255U;
+	space.sp[0].rgb.b = 255U;
+	space.sp[0].rgb.bright = 255U;
+	space.sp[0].radii = 1.0f;
+	space.sp[0].texture = 'n';
+
+	space.sp[1].exists = true;
+	space.sp[1].pos.x = 0.0f;
+	space.sp[1].pos.y = -1.5f;
+	space.sp[1].pos.z = 1.0f;
+	space.sp[1].rgb.r = 127U;
+	space.sp[1].rgb.g = 255U;
+	space.sp[1].rgb.b = 127U;
+	space.sp[1].rgb.bright = 255U;
+	space.sp[1].radii = 0.6f;
+	space.sp[1].texture = 'n';
+
+	space.cylind[0].exists = true;
+	space.cylind[0].pos.x = -3.0f;
+	space.cylind[0].pos.y = -2.0f;
+	space.cylind[0].pos.z = 1.0f;
+	space.cylind[0].nv.x = 0.70710678f;
+	space.cylind[0].nv.y = 0.70710678f;
+	space.cylind[0].nv.z = 0.0f;
+	space.cylind[0].texture = 'n';
+	space.cylind[0].radii = 1.0f;
+	space.cylind[0].rgb.r = 255U;
+	space.cylind[0].rgb.g = 0U;
+	space.cylind[0].rgb.b = 255U;
+	space.cylind[0].rgb.bright = 255U;
+	space.cylind[0].height = 1.0f;
+	set_cyd(&space.cylind[0]);
 
 
-	space.cylind.exists = true;
-	space.cylind.pos.x = -3.0f;
-	space.cylind.pos.y = -2.0f;
-	space.cylind.pos.z = 1.0f;
-	space.cylind.nv.x = 0.70710678f;
-	space.cylind.nv.y = 0.70710678f;
-	space.cylind.nv.z = 0.0f;
-	space.cylind.texture = 'n';
-	space.cylind.radii = 1.0f;
-	space.cylind.rgb.r = 255U;
-	space.cylind.rgb.g = 0U;
-	space.cylind.rgb.b = 255U;
-	space.cylind.rgb.bright = 255U;
-	space.cylind.height = 1.0f;
-	set_cyd(&space.cylind);
-
-
-	space.pl.exists = true;
-	space.pl.nv.x = 0.0f;
-	space.pl.nv.y = 0.0f;
-	space.pl.nv.z = 1.0f;
-	space.pl.pos.x = 0.0f;
-	space.pl.pos.y = 0.0f;
-	space.pl.pos.z = 0.0f;
-	space.pl.rgb.r = 255U;
-	space.pl.rgb.g = 255U;
-	space.pl.rgb.b = 255U;
-	space.pl.rgb.bright = 255U;
-	space.pl.texture = 'n';
+	space.pl[0].exists = true;
+	space.pl[0].nv.x = 0.0f;
+	space.pl[0].nv.y = 0.0f;
+	space.pl[0].nv.z = 1.0f;
+	space.pl[0].pos.x = 0.0f;
+	space.pl[0].pos.y = 0.0f;
+	space.pl[0].pos.z = 0.0f;
+	space.pl[0].rgb.r = 255U;
+	space.pl[0].rgb.g = 255U;
+	space.pl[0].rgb.b = 255U;
+	space.pl[0].rgb.bright = 255U;
+	space.pl[0].texture = 'n';
 
 	// space.lit[0].pos.x = 3.0f;
 	// space.lit[0].pos.y = 0.0f;
