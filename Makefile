@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/12/16 15:34:16 by rdragan          ###   ########.fr        #
+#    Updated: 2023/12/16 15:59:30 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,10 @@ SRC		=	src/main.c \
 			src/mlx/paint_img.c \
 			src/api/rgb_to_color.c \
 			tests/api_tests.c \
-			src/api/ambient_to_ambt.c
+			src/api/ambient_to_ambt.c \
+			src/api/float_to_vector.c
+
+# src/api/camara_to_cmr.c
 
 OBJ		=	$(SRC:.c=.o)
 CFLAGS	=	-Wall -Werror -Wextra -g

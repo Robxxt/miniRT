@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:08:17 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 15:51:38 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 16:05:46 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,23 @@ void	test_ambient_to_ambt()
 	printf("\n");
 }
 
+void	test_float_to_vector()
+{
+	float	l[] = {0.1, 0.2, 0.3};
+	t_vector v;
+
+	float_to_vector(l, &v);
+	printf("test_float_to_vector(): ");
+	if (v.x == l[0] && v.y == l[1] && v.z == l[2])
+		printf("✅");
+	else
+		printf("💥");
+	printf("\n");
+}
+
 void	api_tests()
 {
 	test_rgb_to_color();
 	test_ambient_to_ambt();
+	test_float_to_vector();
 }
