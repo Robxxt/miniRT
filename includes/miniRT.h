@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 19:39:29 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 20:58:56 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,10 +246,10 @@ typedef struct	s_space
 	t_ambt		ambient;
 	t_cmr		cmr;
 	t_lit		lit[17];
-	t_sp		sp;
-	t_panel		pl;
-	t_cylind	cylind;
-	t_cub		cub;
+	t_sp		sp[9];
+	t_panel		pl[9];
+	t_cylind	cylind[9];
+	t_cub		cub[9];
 }	t_space;
 
 /*

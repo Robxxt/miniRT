@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 20:44:00 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 21:38:16 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,6 @@ void	all(t_vars *vars, void *mlx, void *mlx_win, t_image* image)
 	image_to_space(*image, &space);
 	print_space(space);
 	ray_tracing(&space, vars);
-	printf("test\n");
 
 	mlx_put_image_to_window(mlx, mlx_win, vars->img, 0, 0);
 }
