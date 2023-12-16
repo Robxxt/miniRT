@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:08:17 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 15:23:52 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 15:42:11 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,28 @@ void	test_rgb_to_color()
 	else
 		printf("💥");
 	printf("\n");
-	print_color(color);
+}
+
+void	test_ambient_to_ambt()
+{
+	t_ambient	a;
+	t_ambt		a2;
+	a.r = 0.4;
+	a.rgb[0] = 0;
+	a.rgb[1] = 1;
+	a.rgb[2] = 2;
+
+	ambient_to_ambt(a, &a2);
+	printf("test_rgb_to_color(): ");
+	if (a2.rgb.r == (unsigned int)a.rgb[0] && a2.rgb.g == (unsigned int)a.rgb[1] && a2.rgb.b == (unsigned int)a.rgb[2] &&
+		a2.rgb.bright == (a.r * 255))
+		printf("✅");
+	else
+		printf("💥");
 }
 
 void	api_tests()
 {
 	test_rgb_to_color();
+	test_ambient_to_ambt();
 }

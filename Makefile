@@ -6,13 +6,13 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/12/16 15:17:09 by rdragan          ###   ########.fr        #
+#    Updated: 2023/12/16 15:34:16 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	miniRT
 SRC		=	src/main.c \
-			src/print_color.c \
+			debugging.c \
 			src/is_valid_file_extension.c \
 			src/is_valid_file.c \
 			src/ft_atof.c \
@@ -61,7 +61,8 @@ SRC		=	src/main.c \
 			src/tracing/tracing.c \
 			src/mlx/paint_img.c \
 			src/api/rgb_to_color.c \
-			tests/api_tests.c
+			tests/api_tests.c \
+			src/api/ambient_to_ambt.c
 
 OBJ		=	$(SRC:.c=.o)
 CFLAGS	=	-Wall -Werror -Wextra -g
