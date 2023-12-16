@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/15 02:56:38 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/16 16:12:44 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,10 +255,10 @@ typedef struct	s_space
 	t_ambt		ambient;
 	t_cmr		cmr;
 	t_lit		lit[17];
-	t_sp		sp;
-	t_panel		pl;
-	t_cylind	cylind;
-	t_cub		cub;
+	t_sp		sp[9];
+	t_panel		pl[9];
+	t_cylind	cylind[9];
+	t_cub		cub[9];
 }	t_space;
 
 /*

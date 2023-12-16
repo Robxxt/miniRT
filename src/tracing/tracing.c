@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:26:49 by tiqin             #+#    #+#             */
-/*   Updated: 2023/12/15 03:13:34 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/16 16:01:18 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,10 @@ t_surface	trace_obj(t_space *space, t_ray *ray)
 	t_surface	tmp[4];
 
 	tmp[0] = trace_pl(&space->pl, ray);
-	// printf("tmp0:[%f,%f,%f]\n", tmp[0].nv.x, tmp[0].nv.y, tmp[0].nv.z); 
 	tmp[1] = trace_sp(&space->sp, ray);
 	tmp[2] = trace_cyl(&space->cylind, ray);
-	// printf("cubbef\n");
 	tmp[3] = trace_cub(&space->cub, ray);
-	// printf("cubaft\n");
 	re = min_traces(tmp, ray);
-	// printf("re:[%f,%f,%f]\n", re.nv.x, re.nv.y, re.nv.z); 
 	return (re);
 }
 
