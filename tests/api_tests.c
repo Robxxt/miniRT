@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:08:17 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 16:05:46 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 16:11:15 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,33 @@ void	test_float_to_vector()
 	printf("\n");
 }
 
+void	test_camara_to_cmr()
+{
+	t_camara c1;
+	t_cmr	 c2;
+
+	c1.pos[0] = 0.1;
+	c1.pos[1] = 1.1;
+	c1.pos[2] = 2.1;
+	c1.nv[0] = 0.1;
+	c1.nv[1] = 1.1;
+	c1.nv[2] = 2.1;
+	c1.fv = 1;
+	printf("test_camara_to_cmr(): ");
+	camara_to_cmr(c1, &(c2));
+	if (c1.pos[0] == c2.pos.x && c1.pos[1] == c2.pos.y && c1.pos[2] == c2.pos.z &&
+		c1.nv[0] == c2.nv.x && c1.nv[1] == c2.nv.y && c1.nv[2] == c2.nv.z &&
+		c1.fv == c2.fv)
+		printf("✅");
+	else
+		printf("💥");
+	printf("\n");
+}
+
 void	api_tests()
 {
 	test_rgb_to_color();
 	test_ambient_to_ambt();
 	test_float_to_vector();
+	test_camara_to_cmr();
 }
