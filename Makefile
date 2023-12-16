@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+         #
+#    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/12/13 09:01:34 by tiqin            ###   ########.fr        #
+#    Updated: 2023/12/16 15:17:09 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	miniRT
 SRC		=	src/main.c \
+			src/print_color.c \
 			src/is_valid_file_extension.c \
 			src/is_valid_file.c \
 			src/ft_atof.c \
@@ -58,7 +59,9 @@ SRC		=	src/main.c \
 			src/tracing/panel.c \
 			src/tracing/sphere.c \
 			src/tracing/tracing.c \
-			src/mlx/paint_img.c
+			src/mlx/paint_img.c \
+			src/api/rgb_to_color.c \
+			tests/api_tests.c
 
 OBJ		=	$(SRC:.c=.o)
 CFLAGS	=	-Wall -Werror -Wextra -g

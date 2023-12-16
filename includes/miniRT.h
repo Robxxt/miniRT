@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/15 02:56:38 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/16 15:17:18 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -344,6 +344,7 @@ void	clear_lst(t_list *lst);
 
 // Debugging info
 void	print_lst(t_list *lst);
+void	print_color(t_color color);
 
 // Tests
 void	parsing_tests(void);
