@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   api.h                                              :+:      :+:    :+:   */
+/*   light_to_lit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 15:01:29 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 16:41:55 by rdragan          ###   ########.fr       */
+/*   Created: 2023/12/16 16:41:13 by rdragan           #+#    #+#             */
+/*   Updated: 2023/12/16 16:50:17 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef API_H
-# define API_H
-
-# include "miniRT.h"
-
-void	rgb_to_color(int rgb[3], t_color* color);
-void	ambient_to_ambt(t_ambient a1, t_ambt* a2);
-void	float_to_vector(float list[3], t_vector *v);
-void	camara_to_cmr(t_camara a1, t_cmr* a2);
-void	light_to_lit(t_light l1, t_lit* l2);
+#include "../../includes/miniRT.h"
+#include "../../includes/api.h"
 
 /*
-tests
+Handles the differences between t_light and t_lit
+and fills l2 with the values from l1.
 */
-void	api_tests();
-
-#endif
+void	light_to_lit(t_light l1, t_lit* l2)
+{
+	float_to_vector(l1.pos, &(l2->pos));
+	rgb_to_color(l1.rgb, &(l2->rgb));
+	l2->rgb.bright = l1.lb * 255;
+}

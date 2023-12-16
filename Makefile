@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/12/16 16:07:52 by rdragan          ###   ########.fr        #
+#    Updated: 2023/12/16 16:33:22 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ SRC		=	src/main.c \
 			tests/api_tests.c \
 			src/api/ambient_to_ambt.c \
 			src/api/float_to_vector.c \
-			src/api/camara_to_cmr.c
+			src/api/camara_to_cmr.c \
+			src/api/light_to_lit.c
 
 
 OBJ		=	$(SRC:.c=.o)

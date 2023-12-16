@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:08:17 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 16:11:15 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 16:50:49 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,34 @@ void	test_camara_to_cmr()
 	printf("\n");
 }
 
+void	test_light_to_lit()
+{
+	t_light	l1;
+	t_lit	l2;
+
+	printf("test_light_to_lit(): ");
+	l1.pos[0] = 0.1;
+	l1.pos[1] = 1.1;
+	l1.pos[2] = 2.1;
+	l1.rgb[0] = 0;
+	l1.rgb[1] = 1;
+	l1.rgb[2] = 2;
+	l1.lb = 0.4;
+	light_to_lit(l1, &(l2));
+	if (l1.pos[0] == l2.pos.x && l1.pos[1] == l2.pos.y && l1.pos[2] == l2.pos.z &&
+		(unsigned int)l1.rgb[0] == l2.rgb.r && (unsigned int)l1.rgb[1] == l2.rgb.g && (unsigned int)l1.rgb[2] == l2.rgb.b &&
+		(l1.lb * 255) == l2.rgb.bright)
+		printf("✅");
+	else
+		printf("💥");
+	printf("\n");
+}
+
 void	api_tests()
 {
 	test_rgb_to_color();
 	test_ambient_to_ambt();
 	test_float_to_vector();
 	test_camara_to_cmr();
+	test_light_to_lit();
 }
