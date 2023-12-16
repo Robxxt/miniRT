@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 16:29:53 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 19:41:40 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,13 @@ int	main(int argc, char **argv)
 	parsing_tests();
 	api_tests();
 	t_image	*image;
+	t_space	space;
 
 	if (init_check(argc, argv) == false)
 		return (1);
 	image = parser(argv);
+	image_to_space(*image, &(space));
+	print_space(space);
 	if (image != NULL)
 		free(image);
 	return (0);

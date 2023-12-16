@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 19:23:30 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 19:39:29 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -336,8 +336,9 @@ void	clear_lst(t_list *lst);
 // Debugging info
 void	print_lst(t_list *lst);
 void	print_color(t_color color);
-void	print_vector(t_vector vector);
+void	print_vector(t_vector vector, char *s);
 void	print_panel(t_panel panel);
+void	print_space(t_space s);
 
 // Tests
 void	parsing_tests(void);

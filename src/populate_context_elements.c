@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:54:25 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 17:07:20 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 19:33:52 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	populate_a(t_image *image, char **node_content)
 	r = ft_atof(node_content[1]);
 	image->ambient.r = r;
 	read_int_list(image->ambient.rgb, node_content[2]);
-	printf("Populating a...\n");
 }
 
 void	populate_c(t_image *image, char **node_content)
@@ -30,7 +29,6 @@ void	populate_c(t_image *image, char **node_content)
 	image->camara.fv = fv;
 	read_float_list(image->camara.pos, node_content[1]);
 	read_float_list(image->camara.nv, node_content[2]);
-	printf("Populating c...\n");
 }
 
 void	populate_l(t_image *image, char **node_content)
@@ -41,8 +39,6 @@ void	populate_l(t_image *image, char **node_content)
 	lb = ft_atof(node_content[2]);
 	image->light.lb = lb;
 	read_int_list(image->light.rgb, node_content[3]);
-	
-	printf("Populating l...\n");
 }
 
 /*
