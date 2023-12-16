@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 15:12:07 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/16 16:29:53 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,72 +58,6 @@ void	print_float_lst(float *lst)
 	printf("\n");
 }
 
-//  ONLY FOR DEBUGGING
-void	print_img_info(t_image *image)
-{
-	if (image)
-	{
-		printf("Ambient:\n");
-		printf("> r: %f\n", image->ambient.r);
-		print_rgb(image->ambient.rgb);
-
-		printf("Camara:\n");
-		printf("> fv: %d\n", image->camara.fv);
-		printf("Pos:");
-		print_float_lst(image->camara.pos);
-		printf("nv:");
-		print_float_lst(image->camara.nv);
-
-		printf("Light:\n");
-		printf("Pos:");
-		print_float_lst(image->light.pos);
-		printf("> lb: %f\n", image->light.lb);
-		print_rgb(image->light.rgb);
-
-		printf("Sp:\n");
-		printf("exists: %d\n", image->sphere.exists);
-		if (image->sphere.exists)
-		{
-			printf("Pos:");
-			print_float_lst(image->sphere.pos);
-			printf("> d: %f\n", image->sphere.d);
-			print_rgb(image->sphere.rgb);
-		}
-		printf("Pl:\n");
-		printf("exists: %d\n", image->plane.exists);
-		if (image->plane.exists)
-		{
-			printf("Pos:");
-			print_float_lst(image->plane.pos);
-			printf("Nv:");
-			print_float_lst(image->plane.nv);
-			print_rgb(image->plane.rgb);
-		}
-		printf("Cy:\n");
-		printf("exists: %d\n", image->cylinder.exists);
-		if (image->cylinder.exists)
-		{
-			printf("Pos:");
-			print_float_lst(image->cylinder.pos);
-			printf("Nv:");
-			print_float_lst(image->cylinder.nv);
-			printf("diameter: %f\nheight: %f\n", image->cylinder.d, image->cylinder.h);
-			print_rgb(image->cylinder.rgb);
-		}
-		printf("Cb:\n");
-		printf("exists: %d\n", image->cube.exists);
-		if (image->cube.exists)
-		{
-			printf("Pos:");
-			print_float_lst(image->cube.pos);
-			printf("Nv:");
-			print_float_lst(image->cube.nv);
-			printf("Rgb:");
-			print_rgb(image->cube.rgb);
-		}
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	parsing_tests();
@@ -133,7 +67,6 @@ int	main(int argc, char **argv)
 	if (init_check(argc, argv) == false)
 		return (1);
 	image = parser(argv);
-	print_img_info(image);
 	if (image != NULL)
 		free(image);
 	return (0);
