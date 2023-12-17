@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 11:57:24 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 12:04:36 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 
 # include "../mlx/mlx.h"
 
-typedef struct s_ambient
+typedef struct s_amount
 {
 	int lit;
 	int	pl;
 	int	sp;
 	int	cy;
-}	t_ambient;
+}	t_amount;
 
 
 /*
@@ -112,10 +112,11 @@ typedef	struct s_image
 {
 	t_ambient	ambient;
 	t_camara	camara;
-	t_light		light;
-	t_sphere	sphere;
-	t_plane		plane;
-	t_cylinder	cylinder;
+	t_light		light[17];
+	t_sphere	sphere[9];
+	t_plane		plane[9];
+	t_cylinder	cylinder[9];
+	t_amount	amount;
 }	t_image;
 
 /*
@@ -259,6 +260,7 @@ typedef struct	s_space
 	t_panel		pl[9];
 	t_cylind	cylind[9];
 	t_cub		cub[9];
+	t_amount	amount;
 }	t_space;
 
 /*
@@ -332,8 +334,9 @@ float	get_float_part(char *str);
 float	ft_atof(char *str);
 t_list	*get_file_content(int fd);
 int		split_len(char **s);
-t_image	*parser(char **argv);
 
+t_image	*parser(char **argv);
+void	init_amount(t_amount* a);
 void	read_int_list(int *list, char *s);
 void	read_float_list(float *list, char *s);
 void	populate_context_elements(t_image *image, char **node_content, int node_type);

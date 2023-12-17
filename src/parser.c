@@ -6,11 +6,33 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:40:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 19:21:27 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 12:15:20 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
+
+void	init_amount(t_amount* a)
+{
+	a->lit = 0;
+	a->pl = 0;
+	a->sp = 0;
+	a->cy = 0;
+}
+
+void	init_objects_exist_to_false(t_image* img)
+{
+	int	i;
+
+	i = 0;
+	while (i < 9)
+	{
+		img->plane[i].exists = false;
+		img->sphere[i].exists = false;
+		img->cylinder[i].exists = false;
+		i++;
+	}
+}
 
 /*
 Returns the type of the node.
@@ -64,13 +86,11 @@ t_image	*get_image(t_list *lst)
 {
 	t_image *image;
 	t_list	*tmp;
-
 	image = (t_image *)malloc(sizeof(t_image));
 	if (!image)
 		return (NULL);
-	image->sphere.exists = false;
-	image->plane.exists = false;
-	image->cylinder.exists = false;
+	init_amount(&(image->amount));
+	init_objects_exist_to_false(image);
 	tmp = lst;
 	while (tmp)
 	{

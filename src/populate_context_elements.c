@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:54:25 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 19:33:52 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 12:18:58 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,17 @@ void	populate_c(t_image *image, char **node_content)
 void	populate_l(t_image *image, char **node_content)
 {
 	float	lb;
+	int		i;
 
-	read_float_list(image->light.pos, node_content[1]);
-	lb = ft_atof(node_content[2]);
-	image->light.lb = lb;
-	read_int_list(image->light.rgb, node_content[3]);
+	i = image->amount.lit;
+	if (i < 16)
+	{
+		image->amount.lit++;
+		read_float_list(image->light[i].pos, node_content[1]);
+		lb = ft_atof(node_content[2]);
+		image->light[i].lb = lb;
+		read_int_list(image->light[i].rgb, node_content[3]);
+	}
 }
 
 /*
@@ -52,5 +58,7 @@ void	populate_context_elements(t_image *image, char **node_content, int node_typ
 	else if (node_type == 2)
 		populate_c(image, node_content);
 	else
+	{
 		populate_l(image, node_content);
+	}
 }
