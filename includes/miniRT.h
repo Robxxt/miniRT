@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 12:04:36 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:03:14 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,31 @@
 
 # include "../mlx/mlx.h"
 
+typedef struct s_color
+{
+	unsigned int	bright;
+	unsigned int	r;
+	unsigned int	g;
+	unsigned int	b;
+}	t_color;
+typedef struct s_vector
+{
+	float	x;
+	float	y;
+	float	z;
+}	t_vector;
+typedef struct s_line
+{
+	t_vector	pos;
+	t_vector	nv;
+}	t_line;
 typedef struct s_amount
 {
 	int lit;
 	int	pl;
 	int	sp;
 	int	cy;
+	int	cb;
 }	t_amount;
 
 
@@ -140,32 +159,11 @@ typedef struct s_pixel
 	int		y;
 }	t_pixel;
 
-typedef struct s_color
-{
-	unsigned int	bright;
-	unsigned int	r;
-	unsigned int	g;
-	unsigned int	b;
-}	t_color;
-
 /*
 ** 3D objects
 */
 
 # define DEG_RAD 0.0174532925f
-
-typedef struct s_vector
-{
-	float	x;
-	float	y;
-	float	z;
-}	t_vector;
-
-typedef struct s_line
-{
-	t_vector	pos;
-	t_vector	nv;
-}	t_line;
 
 typedef struct s_surface
 {

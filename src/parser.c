@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:40:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 12:15:20 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:02:40 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_amount(t_amount* a)
 	a->pl = 0;
 	a->sp = 0;
 	a->cy = 0;
+	a->cb = 0;
 }
 
 void	init_objects_exist_to_false(t_image* img)
