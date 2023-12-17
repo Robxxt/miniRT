@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 07:13:32 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 14:16:05 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 15:11:34 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,27 @@ void	populate_sp(t_image *image, char **node_content)
 
 void	populate_cb(t_image *image, char **node_content)
 {
-	(void)image;
-	(void)node_content;
+	float	flt[3];
+	int		rgb[3];
+	int		i;
+
+	i = image->amount.cb;
+	if (i < 9)
+	{
+		image->amount.cb++;
+		image->cube[i].exists = true;
+		read_float_list(flt, node_content[1]);
+		float_to_vector(flt, &(image->cube[i].pos));
+		read_float_list(flt, node_content[2]);
+		float_to_vector(flt, &(image->cube[i].nv1));
+		read_float_list(flt, node_content[3]);
+		float_to_vector(flt, &(image->cube[i].nv2));
+		image->cube[i].size = atof(node_content[4]);
+		read_int_list(rgb, node_content[5]);
+		rgb_to_color(rgb, &(image->cube[i].rgb));
+		image->cube[i].texture = 'n';
+		i++;
+	}
 }
 
 /*

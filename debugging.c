@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:32:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 12:44:31 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:53:48 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,16 @@ void	print_cy(t_cylind c)
 	printf("texture: %c\tradii: %f\theight: %f\n", c.texture, c.radii, c.height);
 }
 
+void	print_cb(t_cub c)
+{
+	printf("\tCUBE\n");
+	print_vector(c.pos, "pos");
+	print_vector(c.nv1, "nv1");
+	print_vector(c.nv2, "nv2");
+	print_color(c.rgb);
+	printf("texture: %c\tsize: %f\n", c.texture, c.size);
+}
+
 void	print_space(t_space s)
 {
 	printf("----------------------------\n");
@@ -96,5 +106,10 @@ void	print_space(t_space s)
 	{
 		if(s.cylind[i].exists)
 			print_cy(s.cylind[i]);
+	}
+	for (int i = 0; i < s.amount.cb; i++)
+	{
+		if(s.cub[i].exists)
+			print_cb(s.cub[i]);
 	}
 }

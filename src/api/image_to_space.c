@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:20:41 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 13:12:07 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 15:01:30 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	transfer_objects(t_image p1, t_space* p2)
 	while (++i < p2->amount.sp)
 		sphere_to_sp(p1.sphere[i], &(p2->sp[i]));
 	i = -1;
+	while (++i < p2->amount.cb)
+		p2->cub[i] = p1.cube[i];
 }
 
 /*
@@ -41,6 +43,7 @@ void	image_to_space(t_image p1, t_space* p2)
 	int	i;
 
 	p2->amount = p1.amount;
+	printf("cbs>> %d\n", p2->amount.cb);
 	ambient_to_ambt(p1.ambient, &(p2->ambient));
 	camara_to_cmr(p1.camara, &(p2->cmr));
 	i = 0;
