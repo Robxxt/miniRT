@@ -6,11 +6,12 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 07:13:32 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 12:17:32 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:16:05 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
+#include "../includes/api.h"
 
 void	populate_pl(t_image *image, char **node_content)
 {
@@ -65,6 +66,12 @@ void	populate_sp(t_image *image, char **node_content)
 	}
 }
 
+void	populate_cb(t_image *image, char **node_content)
+{
+	(void)image;
+	(void)node_content;
+}
+
 /*
 Populate elements basically reads the content of a node into
 it's specific atribute in the image struct.
@@ -77,4 +84,6 @@ void	populate_objects(t_image *image, char **node_content, int node_type)
 		populate_sp(image, node_content);
 	else if (node_type == 6)
 		populate_cy(image, node_content);
+	else if (node_type == 7)
+		populate_cb(image, node_content);
 }
