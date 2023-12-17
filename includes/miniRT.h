@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 20:58:56 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 11:57:24 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 # include <stdio.h> // To remove!!!
 
 # include "../mlx/mlx.h"
+
+typedef struct s_ambient
+{
+	int lit;
+	int	pl;
+	int	sp;
+	int	cy;
+}	t_ambient;
+
 
 /*
 r: Lighting ratio => range: [0.0, 1.0]
