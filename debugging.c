@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:32:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 19:57:19 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 11:55:56 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ void	print_space(t_space s)
 	print_ambient(s.ambient);
 	print_camara(s.cmr);
 	print_light(s.lit[0]);
-	if(s.sp.exists)
-		print_sp(s.sp);
-	if(s.pl.exists)
-		print_panel(s.pl);
-	if(s.cylind.exists)
-		print_cy(s.cylind);
+	if(s.sp[0].exists)
+		print_sp(s.sp[0]);
+	if(s.pl[0].exists)
+		print_panel(s.pl[0]);
+	if(s.cylind[0].exists)
+		print_cy(s.cylind[0]);
 }
