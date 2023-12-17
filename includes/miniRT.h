@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 14:03:14 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:04:06 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,19 @@ typedef struct s_line
 	t_vector	pos;
 	t_vector	nv;
 }	t_line;
+
+typedef struct s_cub
+{
+	bool		exists;
+	t_vector	pos;
+	t_vector	nv1;
+	t_vector	nv2;
+	float		size;
+	t_line		side[7];
+	t_color		rgb;
+	char		texture;
+}	t_cub;
+
 typedef struct s_amount
 {
 	int lit;
@@ -135,6 +148,7 @@ typedef	struct s_image
 	t_sphere	sphere[9];
 	t_plane		plane[9];
 	t_cylinder	cylinder[9];
+	t_cub		cube[9];
 	t_amount	amount;
 }	t_image;
 
@@ -223,18 +237,6 @@ typedef struct s_cylind
 	char		texture;
 	float		height;
 }	t_cylind;
-
-typedef struct s_cub
-{
-	bool		exists;
-	t_vector	pos;
-	t_vector	nv1;
-	t_vector	nv2;
-	float		size;
-	t_line		side[7];
-	t_color		rgb;
-	char		texture;
-}	t_cub;
 
 typedef	struct s_lit
 {

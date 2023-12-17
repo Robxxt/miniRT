@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:40:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 14:02:40 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:04:40 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	init_objects_exist_to_false(t_image* img)
 		img->plane[i].exists = false;
 		img->sphere[i].exists = false;
 		img->cylinder[i].exists = false;
+		img->cube[i].exists = false;
 		i++;
 	}
 }
