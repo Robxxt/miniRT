@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/12/16 19:26:11 by rdragan          ###   ########.fr        #
+#    Updated: 2023/12/17 15:31:58 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ SRC		=	src/main.c \
 			src/api/sphere_to_sp.c \
 			src/api/plane_to_panel.c \
 			src/api/cylinder_to_cylind.c \
-			src/api/image_to_space.c
+			src/api/image_to_space.c \
+			src/is_valid_texture.c
 
 
 OBJ		=	$(SRC:.c=.o)

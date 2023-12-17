@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 09:52:44 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/27 15:03:36 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 15:31:22 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 bool	validate_cy(char **s)
 {
-	if (!s || split_len(s) != 6)
+	int	len;
+
+	len = split_len(s);
+	if (!s || (len != 6 && len != 7))
 		return (false);
 	if (ft_strncmp("cy", s[0], 3) != 0)
 		return (false);
@@ -25,6 +28,8 @@ bool	validate_cy(char **s)
 	if (is_valid_float_number(s[3]) == 0 || is_valid_float_number(s[4]) == 0)
 		return (false);
 	if (validate_rgb(s[5]) == false)
+		return (false);
+	if (len == 7 && is_valid_texture(s[6]) == false)
 		return (false);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 09:31:14 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 09:50:48 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 15:30:58 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 bool	validate_pl(char **s)
 {
-	if (!s || split_len(s) != 4)
+	int	len;
+
+	len = split_len(s);
+	if (!s || (len != 4 && len != 5))
 		return (false);
 	if (ft_strncmp("pl", s[0], 3) != 0)
 		return (false);
@@ -23,6 +26,8 @@ bool	validate_pl(char **s)
 	if (validate_3d_normalized_vector(s[2]) == false)
 		return (false);
 	if (validate_rgb(s[3]) == false)
+		return (false);
+	if (len == 5 && is_valid_texture(s[4]) == false)
 		return (false);
 	return (true);
 }

@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_sp.c                                      :+:      :+:    :+:   */
+/*   is_valid_texture.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 08:35:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 15:31:35 by rdragan          ###   ########.fr       */
+/*   Created: 2023/12/17 15:27:23 by rdragan           #+#    #+#             */
+/*   Updated: 2023/12/17 15:32:06 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-bool	validate_sp(char **s)
+bool	is_valid_texture(char *s)
 {
-	int	len;
-
-	len = split_len(s);
-	if (!s || (len != 4 && len != 5))
+	if (ft_strlen(s) != 1)
 		return (false);
-	if (ft_strncmp("sp", s[0], 3) != 0)
+	if (s[0] != 'n' && s[0] != 'c' && s[0] != 'p' && s[0] != 'b')
 		return (false);
-	if (validate_coord(s[1]) == false)
-		return (false);
-	if (is_valid_float_number(s[2]) == false)
-		return (false);
-	if (validate_rgb(s[3]) == false)
-		return (false);
-	if (len == 5 && is_valid_texture(s[4]) == false)
-		return (false);
-	// if (ft_str_isdigit(s[3]) == 0)
-	// 	return (false);
-	// degrees = ft_atoi(s[3]);
-	// return (is_valid_angle(degrees));
 	return (true);
 }
