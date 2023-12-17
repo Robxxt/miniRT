@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:31:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/27 15:17:58 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 12:25:03 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,16 @@ void	fill_with_zeros(int *lst)
 }
 
 /*
-Checks that A, C, L are uniq in the file. If they
-are uniq returns true, otherwise false.
+Checks that A, C, L are at least ones in the file.
 */
-bool	check_uniq_values(int *occurences)
+bool	check_minimum_occurences(int *occurences)
 {
 	int	i;
 
 	i = 0;
 	while (i < 3)
 	{
-		if (occurences[i] != 1)
+		if (occurences[i] < 1)
 			return (false);
 		i++;
 	}
@@ -84,7 +83,7 @@ Returns true if the whole file content is correct.
 bool	has_valid_content(t_list *lst)
 {
 	t_list	*tmp;
-	int	occurences[3];
+	int		occurences[3];
 
 	fill_with_zeros(occurences);
 	tmp = lst;
@@ -100,5 +99,5 @@ bool	has_valid_content(t_list *lst)
 			occurences[2]++;
 		tmp = tmp->next;
 	}
-	return (check_uniq_values(occurences));
+	return (check_minimum_occurences(occurences));
 }
