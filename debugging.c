@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:32:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 12:11:55 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 12:44:31 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,23 @@ void	print_space(t_space s)
 	printf("----------------------------\n");
 	print_ambient(s.ambient);
 	print_camara(s.cmr);
-	print_light(s.lit[0]);
-	if(s.sp[0].exists)
-		print_sp(s.sp[0]);
-	if(s.pl[0].exists)
-		print_panel(s.pl[0]);
-	if(s.cylind[0].exists)
-		print_cy(s.cylind[0]);
+	for (int i = 0; i < s.amount.lit; i++)
+	{
+		print_light(s.lit[i]);
+	}
+	for (int i = 0; i < s.amount.sp; i++)
+	{
+		if(s.sp[i].exists)
+			print_sp(s.sp[i]);
+	}
+	for (int i = 0; i < s.amount.pl; i++)
+	{
+		if(s.pl[i].exists)
+			print_panel(s.pl[i]);
+	}
+	for (int i = 0; i < s.amount.cy; i++)
+	{
+		if(s.cylind[i].exists)
+			print_cy(s.cylind[i]);
+	}
 }

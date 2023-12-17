@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:20:41 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 12:18:24 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/17 12:53:23 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,41 @@
 #include "../../includes/api.h"
 
 /*
+Transfer the objects from t_image to t_space.
+*/
+void	transfer_objects(t_image p1, t_space* p2)
+{
+	int	i;
+	
+	i = -1;
+	while (++i < p2->amount.pl)
+		plane_to_panel(p1.plane[i], &(p2->pl[i]));
+	i = -1;
+	while (++i < p2->amount.cy)
+		cylinder_to_cylind(p1.cylinder[i], &(p2->cylind[i]));
+	i = -1;
+	while (++i < p2->amount.sp)
+		sphere_to_sp(p1.sphere[i], &(p2->sp[i]));
+	i = -1;
+}
+
+/*
 Handles the differences between t_image and t_space
 and fills p2 with the values from p1.
 */
 void	image_to_space(t_image p1, t_space* p2)
 {
+	int	i;
+
 	p2->amount = p1.amount;
-	printf("lit: %d\n", p2->amount.lit);
-	printf("cy: %d\n", p2->amount.cy);
-	printf("pl: %d\n", p2->amount.pl);
-	printf("sp: %d\n", p2->amount.sp);
 	ambient_to_ambt(p1.ambient, &(p2->ambient));
 	camara_to_cmr(p1.camara, &(p2->cmr));
-	light_to_lit(p1.light[0], &(p2->lit[0]));
-	p2->lit[1].pos.x = NAN;
-	sphere_to_sp(p1.sphere[0], &(p2->sp[0]));
-	plane_to_panel(p1.plane[0], &(p2->pl[0]));
-	cylinder_to_cylind(p1.cylinder[0], &(p2->cylind[0]));
+	i = 0;
+	while (i < p1.amount.lit)
+	{
+		light_to_lit(p1.light[i], &(p2->lit[i]));
+		i++;
+	}
+	p2->lit[i].pos.x = NAN;
+	transfer_objects(p1, p2);
 }
