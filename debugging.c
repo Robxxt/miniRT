@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:32:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 14:53:48 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 10:49:28 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	print_panel(t_panel panel)
 	printf("pos: %f,%f,%f\n", panel.pos.x, panel.pos.y, panel.pos.z);
 	printf("nv: %f,%f,%f\n", panel.nv.x, panel.nv.y, panel.nv.z);
 	printf("rgb: %d,%d,%d\n", panel.rgb.r, panel.rgb.g, panel.rgb.b);
-	printf("texture: %c\n", panel.texture);
+	printf("texture: [ %c ]\n", panel.texture);
 }
 
 void	print_ambient(t_ambt a)
@@ -59,7 +59,7 @@ void	print_sp(t_sp sp)
 	printf("\tSPHERE\n");
 	printf("pos: %f,%f,%f\n", sp.pos.x, sp.pos.y, sp.pos.z);
 	printf("rgb: %d,%d,%d\n", sp.rgb.r, sp.rgb.g, sp.rgb.b);
-	printf("texture: %c\tradii: %f\n", sp.texture, sp.radii);
+	printf("texture: [ %c ]\tradii: %f\n", sp.texture, sp.radii);
 }
 
 void	print_cy(t_cylind c)
@@ -68,7 +68,7 @@ void	print_cy(t_cylind c)
 	print_vector(c.pos, "pos");
 	print_vector(c.nv, "nv");
 	print_color(c.rgb);
-	printf("texture: %c\tradii: %f\theight: %f\n", c.texture, c.radii, c.height);
+	printf("texture: [ %c ]\tradii: %f\theight: %f\n", c.texture, c.radii, c.height);
 }
 
 void	print_cb(t_cub c)
@@ -78,7 +78,7 @@ void	print_cb(t_cub c)
 	print_vector(c.nv1, "nv1");
 	print_vector(c.nv2, "nv2");
 	print_color(c.rgb);
-	printf("texture: %c\tsize: %f\n", c.texture, c.size);
+	printf("texture: [ %c ]\tsize: %f\n", c.texture, c.size);
 }
 
 void	print_space(t_space s)

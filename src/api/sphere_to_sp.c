@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:56:56 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 19:49:30 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 10:52:42 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	sphere_to_sp(t_sphere s1, t_sp* s2)
 	float_to_vector(s1.pos, &(s2->pos));
 	rgb_to_color(s1.rgb, &(s2->rgb));
 	s2->radii = s1.d / 2;
-	s2->texture = 'n';
+	s2->texture = s1.texture;
 }

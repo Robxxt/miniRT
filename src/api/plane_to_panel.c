@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 18:09:17 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/16 18:10:26 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 10:51:26 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	plane_to_panel(t_plane p1, t_panel* p2)
 	float_to_vector(p1.pos, &(p2->pos));
 	float_to_vector(p1.nv, &(p2->nv));
 	rgb_to_color(p1.rgb, &(p2->rgb));
-	p2->texture = 'n';
+	p2->texture = p1.texture;
 }

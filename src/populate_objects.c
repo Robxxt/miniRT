@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 07:13:32 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 10:38:45 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 10:46:15 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ void	populate_pl(t_image *image, char **node_content)
 		read_float_list(image->plane[i].pos, node_content[1]);
 		read_float_list(image->plane[i].nv, node_content[2]);
 		read_int_list(image->plane[i].rgb, node_content[3]);
+		if (split_len(node_content) == 5)
+			image->plane[i].texture = node_content[4][0];
+		else
+			image->plane[i].texture = 'n';
 	}
 }
 
@@ -46,6 +50,10 @@ void	populate_cy(t_image *image, char **node_content)
 		read_float_list(image->cylinder[i].pos, node_content[1]);
 		read_float_list(image->cylinder[i].nv, node_content[2]);
 		read_int_list(image->cylinder[i].rgb, node_content[5]);
+		if (split_len(node_content) == 7)
+			image->cylinder[i].texture = node_content[6][0];
+		else
+			image->cylinder[i].texture = 'n';
 	}
 }
 
@@ -63,6 +71,10 @@ void	populate_sp(t_image *image, char **node_content)
 		d = ft_atof(node_content[2]);
 		image->sphere[i].d = d;
 		read_int_list(image->sphere[i].rgb, node_content[3]);
+		if (split_len(node_content) == 5)
+			image->sphere[i].texture = node_content[4][0];
+		else
+			image->sphere[i].texture = 'n';
 	}
 }
 
@@ -86,7 +98,10 @@ void	populate_cb(t_image *image, char **node_content)
 		image->cube[i].size = atof(node_content[4]);
 		read_int_list(rgb, node_content[5]);
 		rgb_to_color(rgb, &(image->cube[i].rgb));
-		image->cube[i].texture = 'n';
+		if (split_len(node_content) == 7)
+			image->cube[i].texture = node_content[6][0];
+		else
+			image->cube[i].texture = 'n';
 		i++;
 	}
 }
