@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 10:46:40 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 13:26:17 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,49 +99,6 @@ void	ray_tracing(t_space *space, t_vars *vars)
 		pix.x++;
 	}
 }
-
-// /*
-// ** cube sides: up down, left right, front back
-// **		index: 1  6     2    5      3     4
-// */
-
-// void	set_cube(t_cub *cub)
-// {
-// 	t_vector	tmp;
-// 	int			i;
-
-// 	cub->side[3].nv = cub->nv1;
-// 	// tmp = v_product(&cub->side[3].nv, 0.5f * cub->size);
-// 	// cub->side[3].pos = v_plus(&cub->pos, &tmp);
-// 	cub->side[4].nv = v_product(&cub->nv1, -1.0f);
-// 	cub->side[5].nv = cub->nv2;
-// 	cub->side[2].nv = v_product(&cub->nv2, -1.0f);
-// 	cub->side[1].nv = cross_product(&cub->nv1, &cub->nv2);
-// 	cub->side[6].nv = v_product(&cub->side[1].nv, -1.0f);
-// 	i = 1;
-// 	while (i < 7)
-// 	{
-// 		tmp = v_product(&cub->side[i].nv, 0.5f * cub->size);
-// 		cub->side[i].pos = v_plus(&cub->pos, &tmp);
-// 		// printf("P[%f,%f,%f]\n",cub->side[i].pos.x,cub->side[i].pos.y,cub->side[i].pos.z);
-// 		// printf("N[%f,%f,%f]\n",cub->side[i].nv.x,cub->side[i].nv.y,cub->side[i].nv.z);
-// 		i++;
-// 	}
-// }
-
-
-// void	set_cyd(t_cylind *cyd)
-// {
-// 	t_vector	tmp;
-
-// 	cyd->up.nv = cyd->nv;
-// 	cyd->down.nv = v_product(&cyd->nv, -1.0f);
-// 	tmp = v_product(&cyd->nv, cyd->height * 0.5f);
-// 	cyd->up.pos = v_plus(&cyd->pos, &tmp);
-// 	cyd->down.pos = v_minus(&cyd->pos, &tmp);
-// 	cyd->up.radii = cyd->radii;
-// 	cyd->down.radii = cyd->radii;
-// }
 
 void	all(t_vars *vars, void *mlx, void *mlx_win, t_image* image)
 {
