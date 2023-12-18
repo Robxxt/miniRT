@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:40:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 11:32:51 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:50:33 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ int	get_node_type(t_list *node)
 }
 
 /*
-Check what type of element is the node and populates it in the place where must be.
+Check what type of element is the node and populates
+it in the place where must be.
 */
 void	populate_image(t_image *image, t_list *node)
 {
@@ -86,8 +87,9 @@ void	populate_image(t_image *image, t_list *node)
 
 t_image	*get_image(t_list *lst)
 {
-	t_image *image;
+	t_image	*image;
 	t_list	*tmp;
+
 	image = (t_image *)malloc(sizeof(t_image));
 	if (!image)
 		return (NULL);
@@ -103,16 +105,17 @@ t_image	*get_image(t_list *lst)
 }
 
 /*
-Receives a list with the file content and returns the parsed
-image ready for rendering.
+Receives a list with the file content and returns
+the parsed image ready for rendering.
 */
 t_image	*parser(char **argv)
 {
-	int	fd;
+	int		fd;
 	t_image	*image;
+	t_list	*file_content;
 
 	fd = open(argv[1], O_RDONLY);
-	t_list *file_content = get_file_content(fd);
+	file_content = get_file_content(fd);
 	if (!has_valid_content(file_content))
 	{
 		ft_putstr_fd("ERROR: Invalid File Content!\n", STDERR_FILENO);

@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 07:13:32 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 10:46:15 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:48:04 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	populate_cy(t_image *image, char **node_content)
 {
 	float	h;
 	float	d;
-	int	i;
+	int		i;
 
 	i = image->amount.cy;
 	if (i < 9)
@@ -60,7 +60,7 @@ void	populate_cy(t_image *image, char **node_content)
 void	populate_sp(t_image *image, char **node_content)
 {
 	float	d;
-	int	i;
+	int		i;
 
 	i = image->amount.sp;
 	if (i < 9)

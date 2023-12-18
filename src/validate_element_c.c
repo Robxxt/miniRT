@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:09:18 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 08:35:58 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:45:31 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ bool	validate_element_c(char **s)
 
 	if (!s || split_len(s) != 4)
 		return (false);
-	if (validate_coord(s[1]) == false || validate_3d_normalized_vector(s[2]) == false)
+	if (validate_coord(s[1]) == false
+		|| validate_3d_normalized_vector(s[2]) == false)
 		return (false);
 	if (ft_str_isdigit(s[3]) == 0)
 		return (false);

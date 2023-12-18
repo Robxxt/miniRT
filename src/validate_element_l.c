@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:46:47 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 07:40:13 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:46:05 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ bool	validate_element_l(char **s)
 {
 	float	brightness;
 
-	if (!s || (split_len(s) != 4 &&  split_len(s) != 3))
+	if (!s || (split_len(s) != 4 && split_len(s) != 3))
 		return (false);
-	if (is_valid_float_number(s[2]) == false || validate_coord(s[1]) == false)
+	if (is_valid_float_number(s[2]) == false
+		|| validate_coord(s[1]) == false)
 		return (false);
 	brightness = ft_atof(s[2]);
 	if (brightness < 0 || brightness > 1)
