@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:29:18 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 08:29:33 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:23:51 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ t_list	*get_file_content(int fd)
 	t_list	*node;
 	char	*tmp;
 	int		i;
+	char	**sp;
 
 	result = NULL;
 	i = 0;
 	tmp = get_trimmed_line(fd);
-	while(tmp)
+	while (tmp)
 	{
-		char	**sp = ft_split(tmp, ' ');
-		
+		sp = ft_split(tmp, ' ');
 		if (sp[0])
 		{
 			node = ft_lstnew(sp);
@@ -55,13 +55,11 @@ t_list	*get_file_content(int fd)
 				ft_lstadd_back(&result, node);
 		}
 		else
-		{
 			free_split(sp);
-		}
 		free(tmp);
 		tmp = get_trimmed_line(fd);
 		i++;
 	}
 	free(tmp);
-	return result;
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:12:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 09:16:56 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:20:06 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int	get_integer_part(char *str)
 {
 	long	tmp;
 	int		result;
-	int	sign;
-	int	i;
+	int		sign;
+	int		i;
 
 	tmp = 0;
 	sign = 1;
