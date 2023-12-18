@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_float_number.c                                  :+:      :+:    :+:   */
+/*   is_valid_float_number.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 05:42:46 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/06 08:24:35 by rdragan          ###   ########.fr       */
+/*   Created: 2023/12/18 11:26:13 by rdragan           #+#    #+#             */
+/*   Updated: 2023/12/18 11:36:00 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	is_valid_float_number(char *str)
 	plus_counter = 0;
 	minus_counter = 0;
 	i = 0;
-	while (str[i])	
+	while (str[i])
 	{
 		if (str[i] == '.')
 			point_counter++;

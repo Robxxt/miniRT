@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:19:20 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/07 16:30:49 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:31:53 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,11 @@ bool	validate_rgb(char *s)
 		free_split(tmp_list);
 		return (false);
 	}
-	// i = 0;
 	if (is_valid_int_list(tmp_list, is_valid_rgb_value) == false)
 	{
 		free_split(tmp_list);
 		return (false);
 	}
-	// while (tmp_list[i])
-	// {
-	// 	tmp = ft_atoi(tmp_list[i]);
-	// 	if (tmp < 0 || tmp > 255 || ft_str_isdigit(tmp_list[i]) == 0)
-	// 	{
-	// 		free_split(tmp_list);
-	// 		return (false);
-	// 	}
-	// 	i++;
-	// }
 	free_split(tmp_list);
 	return (true);
 }

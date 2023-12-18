@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:54:25 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 12:18:58 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:31:02 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ void	populate_l(t_image *image, char **node_content)
 Populate elements basically reads the content of a node into
 it's specific atribute in the image struct.
 */
-void	populate_context_elements(t_image *image, char **node_content, int node_type)
+void	populate_context_elements(t_image *img, char **nc, int node_type)
 {
 	if (node_type == 1)
-		populate_a(image, node_content);
+		populate_a(img, nc);
 	else if (node_type == 2)
-		populate_c(image, node_content);
+		populate_c(img, nc);
 	else
 	{
-		populate_l(image, node_content);
+		populate_l(img, nc);
 	}
 }

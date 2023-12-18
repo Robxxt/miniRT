@@ -6,10 +6,9 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 08:07:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/05 08:16:37 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:25:40 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/miniRT.h"
 

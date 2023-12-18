@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 16:17:32 by rdragan           #+#    #+#             */
-/*   Updated: 2023/11/08 07:47:40 by rdragan          ###   ########.fr       */
+/*   Created: 2023/12/18 11:30:25 by rdragan           #+#    #+#             */
+/*   Updated: 2023/12/18 11:30:25 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ are meeting a specific criteria set by function.
 */
 bool    is_valid_int_list(char **list, bool (*function)(char *, int))
 {
-	int	tmp;
+    int	tmp;
     int i;
-    
+
     i = 0;
     while (i < 3)
     {
@@ -41,8 +41,8 @@ are meeting a specific criteria set by function.
 bool    is_valid_float_list(char **list, bool (*function)(char *, float))
 {
 	float	tmp;
-    int i;
-    
+    int     i;
+
     i = 0;
     while (i < 3)
     {
