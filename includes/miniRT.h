@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 10:39:35 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 10:42:08 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef	struct s_sphere
 	float	pos[3];
 	float	d;
 	int		rgb[3];
+	char	texture;
 }	t_sphere;
 
 /*
@@ -121,6 +122,7 @@ typedef	struct s_plane
 	float	pos[3];
 	float	nv[3];
 	int		rgb[3];
+	char	texture;
 }	t_plane;
 
 /*
@@ -138,6 +140,7 @@ typedef	struct s_cylinder
 	float	d;
 	float	h;
 	int		rgb[3];
+	char	texture;
 }	t_cylinder;
 
 typedef	struct s_image
