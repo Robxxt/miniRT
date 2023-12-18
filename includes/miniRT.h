@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 10:42:08 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:16:29 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -355,23 +355,5 @@ void	print_color(t_color color);
 void	print_vector(t_vector vector, char *s);
 void	print_panel(t_panel panel);
 void	print_space(t_space s);
-
-// Tests
-void	parsing_tests(void);
-void	test_is_valid_file_extension(void);
-void	test_is_valid_file(void);
-void	test_ft_atof(void);
-void	test_get_integer_part(void);
-void	test_is_valid_float_number(void);
-void	test_get_float_part(void);
-void	test_is_valid_element_type(void);
-void	test_split_len(void);
-void	test_validate_rgb(void);
-void	test_validate_element_a(void);
-void	test_validate_element_l(void);
-void	test_validate_element_c(void);
-void	test_validate_sp(void);
-void	test_validate_pl(void);
-void	test_validate_cy(void);
 
 #endif
