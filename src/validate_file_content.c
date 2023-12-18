@@ -6,25 +6,14 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:31:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 12:25:03 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:44:04 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-/*
-Return true if the format of the line is correct.
-*/
-bool	check_element(char **s)
+bool	check_more_elements(char **s)
 {
-	if (is_valid_element_type(s[0]) == false)
-		return (false);
-	if (ft_strncmp(s[0], "A", 2) == 0)
-		if (validate_element_a(s) == false)
-			return (false);
-	if (ft_strncmp(s[0], "C", 2) == 0)
-		if (validate_element_c(s) == false)
-			return (false);
 	if (ft_strncmp(s[0], "L", 2) == 0)
 		if (validate_element_l(s) == false)
 			return (false);
@@ -43,6 +32,22 @@ bool	check_element(char **s)
 			return (false);
 	}
 	return (true);
+}
+
+/*
+Return true if the format of the line is correct.
+*/
+bool	check_element(char **s)
+{
+	if (is_valid_element_type(s[0]) == false)
+		return (false);
+	if (ft_strncmp(s[0], "A", 2) == 0)
+		if (validate_element_a(s) == false)
+			return (false);
+	if (ft_strncmp(s[0], "C", 2) == 0)
+		if (validate_element_c(s) == false)
+			return (false);
+	return (check_more_elements(s));
 }
 
 /*

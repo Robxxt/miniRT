@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 18:17:40 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 10:52:25 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:41:06 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 Handles the differences between t_cylinder and t_cylind
 and fills p2 with the values from p1.
 */
-void	cylinder_to_cylind(t_cylinder p1, t_cylind* p2)
+void	cylinder_to_cylind(t_cylinder p1, t_cylind *p2)
 {
 	p2->exists = p1.exists;
 	p2->height = p1.h;

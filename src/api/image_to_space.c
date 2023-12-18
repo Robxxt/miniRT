@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:20:41 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 15:23:58 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:39:56 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 /*
 Transfer the objects from t_image to t_space.
 */
-void	transfer_objects(t_image p1, t_space* p2)
+void	transfer_objects(t_image p1, t_space *p2)
 {
 	int	i;
-	
+
 	i = -1;
 	while (++i < p2->amount.pl)
 		plane_to_panel(p1.plane[i], &(p2->pl[i]));
@@ -38,7 +38,7 @@ void	transfer_objects(t_image p1, t_space* p2)
 Handles the differences between t_image and t_space
 and fills p2 with the values from p1.
 */
-void	image_to_space(t_image p1, t_space* p2)
+void	image_to_space(t_image p1, t_space *p2)
 {
 	int	i;
 

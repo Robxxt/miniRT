@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 08:35:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 10:36:51 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:42:29 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,5 @@ bool	validate_sp(char **s)
 		return (false);
 	if (len == 5 && is_valid_texture(s[4], 0) == false)
 		return (false);
-	// if (ft_str_isdigit(s[3]) == 0)
-	// 	return (false);
-	// degrees = ft_atoi(s[3]);
-	// return (is_valid_angle(degrees));
 	return (true);
 }
