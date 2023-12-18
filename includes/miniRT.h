@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/17 15:30:19 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/18 10:39:35 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -328,7 +328,7 @@ bool	validate_sp(char **s);
 bool	validate_pl(char **s);
 bool	validate_cy(char **s);
 bool	validate_cb(char **s);
-bool	is_valid_texture(char *s);
+bool	is_valid_texture(char *s, int type);
 
 int		get_integer_part(char *str);
 float	get_float_part(char *str);
