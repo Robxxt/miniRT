@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/20 12:32:56 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/20 13:01:26 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <math.h>
-# include <stdio.h> // To remove!!!
 
 # include "../mlx/mlx.h"
 
@@ -29,6 +28,7 @@ typedef struct s_color
 	unsigned int	g;
 	unsigned int	b;
 }	t_color;
+
 typedef struct s_vector
 {
 	float	x;
@@ -275,6 +275,21 @@ typedef struct s_space
 # define SCREEN_Y 1200
 # define ASP_RATIO 1.6f
 # define RASP_RATIO 0.625f
+
+// # define SCREEN_X 1280
+// # define SCREEN_Y 800
+// # define ASP_RATIO 1.6f
+// # define RASP_RATIO 0.625f
+
+// # define SCREEN_X 1000
+// # define SCREEN_Y 500
+// # define ASP_RATIO 2.0f
+// # define RASP_RATIO 0.5f
+
+// # define SCREEN_X 500
+// # define SCREEN_Y 1000
+// # define ASP_RATIO 0.5f
+// # define RASP_RATIO 1.0f
 
 // Vector
 
