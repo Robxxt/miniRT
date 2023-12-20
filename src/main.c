@@ -6,56 +6,12 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/20 11:50:55 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:01:24 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 #include "../includes/api.h"
-
-/*
-Checks that the program has received a valid argument
-containing the filename with the map.
-*/
-bool	init_check(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		ft_putstr_fd("ERROR: Missing the image file!\n", STDERR_FILENO);
-		return (false);
-	}
-	if (is_valid_file(argv[1]) == false)
-	{
-		ft_putstr_fd("ERROR: Invalid File!\n", STDERR_FILENO);
-		return (false);
-	}
-	return (true);
-}
-
-/*
-Goes through the link list freeing each node content.
-After frees the list itself.
-*/
-void	clear_lst(t_list *lst)
-{
-	ft_lstclear(&lst);
-	free(lst);
-}
-
-// int	main(int argc, char **argv)
-// {
-// 	parsing_tests();
-// 	api_tests();
-// 	t_image	*image;
-// 	t_space	space;
-
-// 	image = parser(argv);
-// 	image_to_space(*image, &(space));
-// 	print_space(space);
-// 	if (image != NULL)
-// 		free(image);
-// 	return (0);
-// }
 
 int	close_window(t_vars *vars)
 {
@@ -76,7 +32,7 @@ void	ray_tracing(t_space *space, t_vars *vars)
 {
 	t_pixel	pix;
 	t_ray	ray;
-	t_color color;
+	t_color	color;
 
 	pix.x = 0;
 	pix.y = 0;
@@ -86,29 +42,22 @@ void	ray_tracing(t_space *space, t_vars *vars)
 		while (pix.y < SCREEN_Y)
 		{
 			ray = camera_ray(&space->cmr, &pix);
-			// printf("[%f,%f,%f]",ray.nv.x, ray.nv.y, ray.nv.z);
-			color =	trace_rays(space, ray, 0);
-			// if (color.bright)
-			// 	printf("%u|",get_color(&color));
-			// 	printf("[%u]", color.bright);
-			
+			color = trace_rays(space, ray, 0);
 			paint_pixel(vars, pix, get_color(&color));
-			// printf("[%sd,%d]\n",pix.x, pix.y);
 			pix.y++;
 		}
 		pix.x++;
 	}
 }
 
-void	all(t_vars *vars, void *mlx, void *mlx_win, t_image* image)
+void	all(t_vars *vars, void *mlx, void *mlx_win, t_image *image)
 {
-	t_space space;
+	t_space	space;
 
 	ft_bzero(&space, sizeof(space));
 	image_to_space(*image, &space);
 	print_space(space);
 	ray_tracing(&space, vars);
-
 	mlx_put_image_to_window(mlx, mlx_win, vars->img, 0, 0);
 }
 
@@ -116,18 +65,14 @@ int	main(int argc, char **argv)
 {
 	t_vars	vars;
 	t_image	*image;
-	
+
 	if (init_check(argc, argv) == false)
 		return (1);
 	image = parser(argv);
 	if (image == NULL)
 		return (1);
-	if (image_has_valid_vectors(image) == false)
-	{
-		free(image);
-		ft_putstr_fd("ERROR: There is at least an invalid vector!\n", STDERR_FILENO);
-		return (0);
-	}
+	if (check_vectors(image) == false)
+		return (1);
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, SCREEN_X, SCREEN_Y, "miniRT");
 	vars.img = mlx_new_image(vars.mlx, SCREEN_X, SCREEN_Y);

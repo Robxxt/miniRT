@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 11:16:29 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:00:36 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -355,5 +355,12 @@ void	print_color(t_color color);
 void	print_vector(t_vector vector, char *s);
 void	print_panel(t_panel panel);
 void	print_space(t_space s);
+
+/*
+main utils
+*/
+bool	init_check(int argc, char **argv);
+void	clear_lst(t_list *lst);
+bool	check_vectors(t_image *image);
 
 #endif
