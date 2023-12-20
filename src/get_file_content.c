@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:29:18 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 11:23:51 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:44:53 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,13 @@ static char	*get_trimmed_line(int fd)
 	return (res);
 }
 
-/*
-Makes a list with all the lines.
-Each line is a node in the list.
-Each node has the splitted content of the line.
-Returns NULL if any validation fails.
-*/
-t_list	*get_file_content(int fd)
+void	fill_list(t_list **result, int fd)
 {
-	t_list	*result;
 	t_list	*node;
 	char	*tmp;
 	int		i;
 	char	**sp;
 
-	result = NULL;
 	i = 0;
 	tmp = get_trimmed_line(fd);
 	while (tmp)
@@ -50,9 +42,9 @@ t_list	*get_file_content(int fd)
 		{
 			node = ft_lstnew(sp);
 			if (i == 0)
-				result = node;
+				*result = node;
 			else
-				ft_lstadd_back(&result, node);
+				ft_lstadd_back(result, node);
 		}
 		else
 			free_split(sp);
@@ -61,5 +53,19 @@ t_list	*get_file_content(int fd)
 		i++;
 	}
 	free(tmp);
+}
+
+/*
+Makes a list with all the lines.
+Each line is a node in the list.
+Each node has the splitted content of the line.
+Returns NULL if any validation fails.
+*/
+t_list	*get_file_content(int fd)
+{
+	t_list	*result;
+
+	result = NULL;
+	fill_list(&result, fd);
 	return (result);
 }

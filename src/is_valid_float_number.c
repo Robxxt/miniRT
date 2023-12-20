@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:26:13 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 11:36:00 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:54:34 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,40 +19,44 @@ static bool	is_valid_digit(char c)
 	return (false);
 }
 
+bool	check_extremes(char *s)
+{
+	if (get_integer_part(s) > INT_MAX - 1)
+		return (false);
+	if (get_integer_part(s) < INT_MIN + 1)
+		return (false);
+	return (true);
+}
+
 /*
 Returns true if the string can be converted to a float.
 False otherwise.
+Counter[0] checks for how many points characters are.
+Counter[1] checks for how many plus characters are.
+Counter[2] checks for how many minus characters are.
 */
 bool	is_valid_float_number(char *str)
 {
-	int	point_counter;
-	int	plus_counter;
-	int	minus_counter;
+	int	counter[3];
 	int	i;
 
 	if (!str || !str[0])
 		return (false);
-	point_counter = 0;
-	plus_counter = 0;
-	minus_counter = 0;
 	i = 0;
+	ft_bzero(counter, sizeof(int) * 3);
 	while (str[i])
 	{
 		if (str[i] == '.')
-			point_counter++;
+			counter[0]++;
 		if (str[i] == '+')
-			plus_counter++;
+			counter[1]++;
 		if (str[i] == '-')
-			minus_counter++;
+			counter[2]++;
 		if (!is_valid_digit(str[i])
-			|| (point_counter > 1 || minus_counter > 1 || plus_counter > 1)
-			|| (minus_counter >= 1 && plus_counter >= 1))
+			|| (counter[0] > 1 || counter[2] > 1 || counter[1] > 1)
+			|| (counter[2] >= 1 && counter[1] >= 1))
 			return (false);
 		i++;
 	}
-	if (get_integer_part(str) > INT_MAX - 1)
-		return (false);
-	if (get_integer_part(str) < INT_MIN + 1)
-		return (false);
-	return (true);
+	return (check_extremes(str));
 }
