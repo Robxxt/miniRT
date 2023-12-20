@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:28:57 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 13:26:17 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 11:50:55 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,12 @@ int	main(int argc, char **argv)
 	image = parser(argv);
 	if (image == NULL)
 		return (1);
+	if (image_has_valid_vectors(image) == false)
+	{
+		free(image);
+		ft_putstr_fd("ERROR: There is at least an invalid vector!\n", STDERR_FILENO);
+		return (0);
+	}
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, SCREEN_X, SCREEN_Y, "miniRT");
 	vars.img = mlx_new_image(vars.mlx, SCREEN_X, SCREEN_Y);

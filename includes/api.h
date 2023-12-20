@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:01:29 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 11:16:20 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 11:35:14 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	sphere_to_sp(t_sphere l1, t_sp* s2);
 void	plane_to_panel(t_plane p1, t_panel* p2);
 void	cylinder_to_cylind(t_cylinder p1, t_cylind* p2);
 void	image_to_space(t_image p1, t_space* p2);
+bool	image_has_valid_vectors(t_image *img);
 
 #endif
