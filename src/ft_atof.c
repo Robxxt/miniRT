@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 05:12:02 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 11:20:06 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:02:43 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ float	get_float_part(char *str)
 		i++;
 	decimals = 0;
 	result = 0.0;
-	while (str[i] && str[i+1] && decimals < 7)
+	while (str[i] && str[i + 1] && decimals < 7)
 	{
 		i++;
 		decimals++;
