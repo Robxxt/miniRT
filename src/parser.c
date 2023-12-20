@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:40:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/20 12:04:12 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:57:23 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ t_image	*parser(char **argv)
 		clear_lst(file_content);
 		return (NULL);
 	}
-	printf("Staring programm...\n");
 	image = get_image(file_content);
 	clear_lst(file_content);
 	return (image);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+         #
+#    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/12/20 12:29:13 by tiqin            ###   ########.fr        #
+#    Updated: 2023/12/20 12:56:38 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ SRC		=	src/main.c \
 			src/ft_atof.c \
 			src/is_valid_float_number.c \
 			src/get_file_content.c \
-			src/print_lst.c \
 			src/validate_file_content.c \
 			src/check_element_utils.c \
 			src/validate_element_a.c \
