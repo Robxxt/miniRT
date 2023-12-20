@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tracing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:26:49 by tiqin             #+#    #+#             */
-/*   Updated: 2023/12/16 20:53:54 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:28:54 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ t_surface	trace_obj(t_space *space, t_ray *ray)
 		i++;
 	}
 	re = min_traces(tmp, ray);
-	// printf("re:[%f,%f,%f]\n", re.nv.x, re.nv.y, re.nv.z); 
 	return (re);
 }
 
@@ -76,7 +75,6 @@ bool	is_shadow(t_space *space, t_ray *end, int i)
 t_color	get_tracing_color(t_space *space, t_ray *ray, t_surface *tmp, int i)
 {
 	t_color		re;
-	// t_surface	point;
 	t_ray		end;
 	float		factor1;
 	float		factor2;
@@ -112,42 +110,4 @@ t_ray	next_ray(t_ray *ray, t_surface *tmp)
 	tp = v_product(&re.nv, 0.001);
 	re.pos = v_plus(&re.pos, &tp);
 	return (re);
-}
-
-t_color	trace_rays(t_space *space, t_ray ray, int i)
-{
-	t_surface	tmp;
-	t_color		re;
-	t_color		abt;
-	int			j;
-
-	ft_bzero(&re, sizeof(re));
-	j = 0;
-	while (++j < 10)
-	{
-		tmp = trace_obj(space, &ray);
-		if (isnan(tmp.pos.x) || tmp.texture != 'p')
-			break;
-		ray = next_ray(&ray, &tmp);
-	}
-	if (isnan(tmp.pos.x))
-		return (re);
-	while (i < 16 && !isnan(space->lit[i].pos.x))
-	{
-		abt = get_tracing_color(space, &ray, &tmp, i);
-		re = color_mix(&abt, &re);
-		// if (abt.bright != 8964U)
-		// {
-		// 	re = color_mix(&abt, &re);
-		// 	j++;
-		// }
-		i++;
-	}
-	abt = color_reflect(&tmp.rgb, &space->ambient.rgb);
-	re = color_mix(&abt, &re);
-	// unsigned int x = 63;
-	// re.bright += x;
-	// re = color_mix(&abt, &re);
-	return (color_normized(&re, ++i));
-	// return (re);
 }

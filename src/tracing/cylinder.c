@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 02:08:17 by tiqin             #+#    #+#             */
-/*   Updated: 2023/12/14 21:21:20 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/20 12:17:25 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ t_surface	trace_up(t_circle *cir, t_ray *ray)
 	float		lambda;
 
 	re.pos.x = NAN;
-	lambda = dot_product(&cir->pos, &cir->nv) - dot_product(&ray->pos, &cir->nv);
+	lambda = dot_product(&cir->pos, &cir->nv);
+	lambda = lambda - dot_product(&ray->pos, &cir->nv);
 	lambda = lambda / dot_product(&ray->nv, &cir->nv);
 	if (lambda < 0.0f)
 		return (re);
@@ -39,7 +40,8 @@ t_surface	trace_down(t_circle *cir, t_ray *ray)
 	float		lambda;
 
 	re.pos.x = NAN;
-	lambda = dot_product(&cir->pos, &cir->nv) - dot_product(&ray->pos, &cir->nv);
+	lambda = dot_product(&cir->pos, &cir->nv);
+	lambda = lambda - dot_product(&ray->pos, &cir->nv);
 	lambda = lambda / dot_product(&ray->nv, &cir->nv);
 	if (lambda < 0.0f)
 		return (re);
@@ -132,7 +134,5 @@ t_surface	trace_cyl(t_cylind *cylind, t_ray *ray)
 	}
 	re.texture = cylind->texture;
 	re.rgb = cylind->rgb;
-	// if (!isnan(re.pos.x))
-	// 	printf("[%f,%f,%f]", re.nv.x, re.nv.y, re.nv.z);
 	return (re);
 }

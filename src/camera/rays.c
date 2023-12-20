@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:06:47 by tiqin             #+#    #+#             */
-/*   Updated: 2023/12/15 01:14:41 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/20 12:13:05 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ t_vector	get_v(t_vector *cmr, float beta)
 		re.z = tanf(beta);
 		return (re);
 	}
-	// lambda = 1.0f - cmr->z * cmr->z;
-	// lambda = lambda + lambda * lambda / cmr->z / cmr->z;
 	lambda = tanf(beta);
 	re.x = -cmr->z * cmr->x / sqrtf(cmr->x * cmr->x + cmr->y * cmr->y);
 	re.y = -cmr->z * cmr->y / sqrtf(cmr->x * cmr->x + cmr->y * cmr->y);
@@ -59,7 +57,6 @@ t_vector	camera_nv(t_cmr *cmr, float aph, float beta)
 		re.x = tanf(aph) * cmr->nv.z;
 		re.y = tanf(beta) * cmr->nv.z;
 		re.z = cmr->nv.z;
-		// printf("[%f,%f,%f]\n", re.x, re.y, re.z);
 		return (normized(re));
 	}
 	re.x = cmr->nv.x;
@@ -84,10 +81,7 @@ t_ray	camera_ray(t_cmr *cmr, t_pixel *pix)
 	re.end = false;
 	res = (float)cmr->fv / (float)SCREEN_X * DEG_RAD;
 	anglx = (float)(pix->x - SCREEN_X / 2) * res;
-	// printf("[%f]",(float)cmr->fv);
 	angly = (float)(pix->y - SCREEN_Y / 2) * res;
-	// printf("[%d,%d]",pix->x, pix->y);
-	// printf("[%f,%f]",anglx, angly);
 	re.nv = camera_nv(cmr, anglx, -angly);
 	return (re);
 }

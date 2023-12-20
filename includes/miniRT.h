@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/20 12:05:48 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:32:56 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,18 @@ typedef struct s_cub
 
 typedef struct s_amount
 {
-	int lit;
+	int	lit;
 	int	pl;
 	int	sp;
 	int	cy;
 	int	cb;
 }	t_amount;
 
-
 /*
 r: Lighting ratio => range: [0.0, 1.0]
 rgb: color representation => [red, green, blue] => color range: [0, 255]
 */
-typedef	struct s_ambient
+typedef struct s_ambient
 {
 	float	r;
 	int		rgb[3];
@@ -78,7 +77,7 @@ pos: coordinates of the view point => input: [x, y, z]
 nv: 3d Normalized vector => range: [-1, 1] => input: [x, y, z]
 fv: Horizontal field of view in degrees => range: [0, 180]
 */
-typedef	struct s_camara
+typedef struct s_camara
 {
 	float	pos[3];
 	float	nv[3];
@@ -88,9 +87,11 @@ typedef	struct s_camara
 /*
 pos: coordinates of the light point => input: [x, y, z]
 lb: Light brightness ratio => range: [0.0, 1.0]
-[OPTIONAL] rgb: color representation of the light => [red, green, blue] => color range: [0, 255]
+[OPTIONAL] rgb: color representation of the light =>
+[red, green, blue] => color range: [0, 255]
 */
-typedef	struct s_light
+
+typedef struct s_light
 {
 	float	pos[3];
 	float	lb;
@@ -102,7 +103,7 @@ pos: coordinates of the light point => input: [x, y, z]
 d: Sphere diameter 
 rgb: color representation => [red, green, blue] => color range: [0, 255]
 */
-typedef	struct s_sphere
+typedef struct s_sphere
 {
 	bool	exists;
 	float	pos[3];
@@ -116,7 +117,7 @@ pos: coordinates of the light point => input: [x, y, z]
 nv: 3d Normalized vector => range: [-1, 1] => input: [x, y, z]
 rgb: color representation => [red, green, blue] => color range: [0, 255]
 */
-typedef	struct s_plane
+typedef struct s_plane
 {
 	bool	exists;
 	float	pos[3];
@@ -132,7 +133,7 @@ d: Cylinder diameter
 h: Cylinder diameter
 rgb: color representation => [red, green, blue] => color range: [0, 255]
 */
-typedef	struct s_cylinder
+typedef struct s_cylinder
 {
 	bool	exists;
 	float	pos[3];
@@ -143,7 +144,7 @@ typedef	struct s_cylinder
 	char	texture;
 }	t_cylinder;
 
-typedef	struct s_image
+typedef struct s_image
 {
 	t_ambient	ambient;
 	t_camara	camara;
@@ -190,7 +191,7 @@ typedef struct s_surface
 	char		texture;
 }	t_surface;
 
-typedef	struct s_ambt
+typedef struct s_ambt
 {
 	t_color	rgb;
 }	t_ambt;
@@ -241,20 +242,20 @@ typedef struct s_cylind
 	float		height;
 }	t_cylind;
 
-typedef	struct s_lit
+typedef struct s_lit
 {
 	t_vector	pos;
 	t_color		rgb;
 }	t_lit;
 
-typedef	struct s_cmr
+typedef struct s_cmr
 {
 	t_vector	pos;
 	t_vector	nv;
-	int		fv;
+	int			fv;
 }	t_cmr;
 
-typedef struct	s_space
+typedef struct s_space
 {
 	t_ambt		ambient;
 	t_cmr		cmr;
@@ -277,93 +278,94 @@ typedef struct	s_space
 
 // Vector
 
-float	module2(t_vector *a);
-float	module(t_vector *a);
-t_vector	normized(t_vector a);
-t_vector	v_product(t_vector *a, float b);
-t_vector	v_plus(t_vector *a, t_vector *b);
-t_vector	v_minus(t_vector *a, t_vector *b);
-float	dot_product(t_vector *a, t_vector *b);
-t_vector	cross_product(t_vector *a, t_vector *b);
+float			module2(t_vector *a);
+float			module(t_vector *a);
+t_vector		normized(t_vector a);
+t_vector		v_product(t_vector *a, float b);
+t_vector		v_plus(t_vector *a, t_vector *b);
+t_vector		v_minus(t_vector *a, t_vector *b);
+float			dot_product(t_vector *a, t_vector *b);
+t_vector		cross_product(t_vector *a, t_vector *b);
 
-float	distance2(t_vector *a, t_vector *b);
-float	distance(t_vector *a, t_vector *b);
+float			distance2(t_vector *a, t_vector *b);
+float			distance(t_vector *a, t_vector *b);
 
 // color
-void	paint_pixel(t_vars *vars, t_pixel pos, int color);
-t_color	color_reflect(t_color *a, t_color *b);
-t_color	color_mix(t_color *a, t_color *b);
+void			paint_pixel(t_vars *vars, t_pixel pos, int color);
+t_color			color_reflect(t_color *a, t_color *b);
+t_color			color_mix(t_color *a, t_color *b);
 unsigned int	get_color(t_color *rgb);
-t_color	color_normized(t_color *a, unsigned int n);
+t_color			color_normized(t_color *a, unsigned int n);
 // t_color	color_normized(t_color *a, unsigned int n, int i);
 
 // tracing
-t_ray	camera_ray(t_cmr *cmr, t_pixel *pix);
-t_surface	trace_pl(t_panel *pl, t_ray *ray);
-t_surface	trace_sp(t_sp *sp, t_ray *ray);
-t_surface	trace_cyl(t_cylind *cylind, t_ray *ray);
-t_surface	trace_cub(t_cub *cub, t_ray *ray);
-t_color		trace_rays(t_space *space, t_ray ray, int i);
+t_ray			camera_ray(t_cmr *cmr, t_pixel *pix);
+t_surface		trace_pl(t_panel *pl, t_ray *ray);
+t_surface		trace_sp(t_sp *sp, t_ray *ray);
+t_surface		trace_cyl(t_cylind *cylind, t_ray *ray);
+t_surface		trace_cub(t_cub *cub, t_ray *ray);
+t_color			trace_rays(t_space *space, t_ray ray, int i);
+t_surface		trace_obj(t_space *space, t_ray *ray);
+t_ray			next_ray(t_ray *ray, t_surface *tmp);
+t_color			get_tracing_color(t_space *s, t_ray *r, t_surface *t, int i);
 
 // solve function
-float	delta(float a, float b, float c);
-float	root_minus(float a, float b, float c);
-float	root_plus(float a, float b, float c);
-float	min_root(float a, float b, float c);
+float			delta(float a, float b, float c);
+float			root_minus(float a, float b, float c);
+float			root_plus(float a, float b, float c);
+float			min_root(float a, float b, float c);
 
 // Validate functions
-bool	is_valid_file_extension(char *filename);
-bool	is_valid_file(char *filename);
-bool	is_valid_float_number(char *str);
-bool	is_valid_element_type(char *type);
-bool	validate_rgb(char *s);
-bool	validate_coord(char *s);
-bool	validate_element_a(char **s);
-bool	validate_element_l(char **s);
-bool	validate_element_c(char **s);
-bool	has_valid_content(t_list *lst);
-bool	is_valid_angle(int d);
-bool	is_valid_int_list(char **list, bool (*function)(char *, int));
-bool	is_valid_float_list(char **list, bool (*function)(char *, float));
-bool	validate_coord(char *s);
-bool	validate_3d_normalized_vector(char *s);
-bool	validate_sp(char **s);
-bool	validate_pl(char **s);
-bool	validate_cy(char **s);
-bool	validate_cb(char **s);
-bool	is_valid_texture(char *s, int type);
+bool			is_valid_file_extension(char *filename);
+bool			is_valid_file(char *filename);
+bool			is_valid_float_number(char *str);
+bool			is_valid_element_type(char *type);
+bool			validate_rgb(char *s);
+bool			validate_coord(char *s);
+bool			validate_element_a(char **s);
+bool			validate_element_l(char **s);
+bool			validate_element_c(char **s);
+bool			has_valid_content(t_list *lst);
+bool			is_valid_angle(int d);
+bool			is_valid_int_list(char **list, bool (*function)(char *, int));
+bool			is_valid_float_list(char **l, bool (*f)(char *, float));
+bool			validate_coord(char *s);
+bool			validate_3d_normalized_vector(char *s);
+bool			validate_sp(char **s);
+bool			validate_pl(char **s);
+bool			validate_cy(char **s);
+bool			validate_cb(char **s);
+bool			is_valid_texture(char *s, int type);
 
-int		get_integer_part(char *str);
-float	get_float_part(char *str);
-float	ft_atof(char *str);
-t_list	*get_file_content(int fd);
-int		split_len(char **s);
+int				get_integer_part(char *str);
+float			get_float_part(char *str);
+float			ft_atof(char *str);
+t_list			*get_file_content(int fd);
+int				split_len(char **s);
 
-t_image	*parser(char **argv);
-void	init_amount(t_amount* a);
-void	read_int_list(int *list, char *s);
-void	read_float_list(float *list, char *s);
-void	populate_context_elements(t_image *image, char **node_content, int node_type);
-void	populate_objects(t_image *image, char **node_content, int node_type);
+t_image			*parser(char **argv);
+void			init_amount(t_amount *a);
+void			read_int_list(int *list, char *s);
+void			read_float_list(float *list, char *s);
+void			populate_context_elements(t_image *i, char **n, int node_type);
+void			populate_objects(t_image *i, char **n, int node_type);
 
-
-void	clear_lst(t_list *lst);
+void			clear_lst(t_list *lst);
 
 // Debugging info
-void	print_lst(t_list *lst);
-void	print_color(t_color color);
-void	print_vector(t_vector vector, char *s);
-void	print_panel(t_panel panel);
-void	print_space(t_space s);
+void			print_lst(t_list *lst);
+void			print_color(t_color color);
+void			print_vector(t_vector vector, char *s);
+void			print_panel(t_panel panel);
+void			print_space(t_space s);
 
 /*
 utils to solve norminette errors
 */
-bool	init_check(int argc, char **argv);
-void	clear_lst(t_list *lst);
-bool	check_vectors(t_image *image);
-void	init_amount(t_amount *a);
-void	init_objects_exist_to_false(t_image *img);
-
+bool			init_check(int argc, char **argv);
+void			clear_lst(t_list *lst);
+bool			check_vectors(t_image *image);
+void			init_amount(t_amount *a);
+void			init_objects_exist_to_false(t_image *img);
 
 #endif

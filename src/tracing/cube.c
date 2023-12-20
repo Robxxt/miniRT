@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 01:55:56 by tiqin             #+#    #+#             */
-/*   Updated: 2023/12/14 16:23:00 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/20 12:16:33 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,11 @@ t_surface	trace_side(t_line *pl, t_ray *ray)
 	re.pos.x = NAN;
 	lambda = dot_product(&pl->pos, &pl->nv) - dot_product(&ray->pos, &pl->nv);
 	lambda = lambda / dot_product(&ray->nv, &pl->nv);
-	// printf("[lmd%f]", lambda);
 	if (lambda < 0.0f)
 		return (re);
 	re.pos = v_product(&ray->nv, lambda);
 	re.pos = v_plus(&ray->pos, &re.pos);
 	re.nv = pl->nv;
-	// printf("[%f]",re.pos.x);
 	return (re);
 }
 
@@ -74,27 +72,19 @@ t_surface	trace_cub(t_cub *cub, t_ray *ray)
 	if (cub->exists == false)
 		return (re);
 	dis = 3.4028235E38f;
-	i = 1;
-	while (i < 7)
+	i = -1;
+	while (++i < 7)
 	{
 		tmp = trace_side(&cub->side[i], ray);
-		// printf("[%f]", tmp.pos.x);
-		// printf("in cube %d", in_cube(&tmp, cub, i));
 		if (isnan(tmp.pos.x) || !in_cube(&tmp, cub, i))
-		{
-			i++;
 			continue ;
-		}
 		if (distance2(&tmp.pos, &ray->pos) < dis)
 		{
-			// printf("getin---------------------");
 			re = tmp;
 			dis = distance2(&re.pos, &ray->pos);
 		}
-		i++;
 	}
 	re.texture = cub->texture;
 	re.rgb = cub->rgb;
-	// printf("[%f,%f,%f]", re.pos.x, re.pos.y, re.pos.z);
 	return (re);
 }

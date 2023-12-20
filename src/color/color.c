@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:12:21 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 12:12:23 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:13:21 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ unsigned int	get_color(t_color *rgb)
 {
 	unsigned int	c;
 
-	// if (rgb->bright == 0)
-	// 	return (0);
 	c = 0U;
 	if (rgb->b > 255U)
 		c = c + 255U;
@@ -44,8 +42,6 @@ t_color	color_mix(t_color *a, t_color *b)
 	re.b = (a->b + b->b);
 	re.g = (a->g + b->g);
 	re.r = (a->r + b->r);
-	// if (re.bright > 255)
-	// 	re.bright = 255;
 	return (re);
 }
 
@@ -64,13 +60,6 @@ t_color	color_normized(t_color *a, unsigned int n)
 {
 	t_color	re;
 
-	// n = 0U;
-	// if (a->b > n)
-	// 	n = a->b;
-	// if (a->g > n)
-	// 	n = a->g;
-	// if (a->r > n)
-	// 	n = a->r;
 	re.b = a->b / n;
 	re.g = a->g / n;
 	re.r = a->r / n;

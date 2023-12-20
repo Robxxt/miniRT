@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
+#    By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/12/20 12:05:19 by rdragan          ###   ########.fr        #
+#    Updated: 2023/12/20 12:29:13 by tiqin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,11 +40,13 @@ SRC		=	src/main.c \
 			src/function/quadratic.c \
 			src/geomerty/lines.c \
 			src/geomerty/vector.c \
+			src/geomerty/vector2.c \
 			src/tracing/cube.c \
 			src/tracing/cylinder.c \
 			src/tracing/panel.c \
 			src/tracing/sphere.c \
 			src/tracing/tracing.c \
+			src/tracing/tracing2.c \
 			src/mlx/paint_img.c \
 			src/api/rgb_to_color.c \
 			src/api/ambient_to_ambt.c \
