@@ -6,12 +6,14 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:32:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 10:49:28 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:58:38 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/miniRT.h"
 #include "includes/api.h"
+#include <stdio.h> // To remove!!!
+
 
 void	print_color(t_color color)
 {

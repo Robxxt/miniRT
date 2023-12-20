@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/20 12:32:56 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/20 12:58:25 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <math.h>
-# include <stdio.h> // To remove!!!
 
 # include "../mlx/mlx.h"
 
