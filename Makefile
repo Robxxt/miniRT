@@ -6,7 +6,7 @@
 #    By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 07:54:51 by rdragan           #+#    #+#              #
-#    Updated: 2023/12/20 13:08:45 by tiqin            ###   ########.fr        #
+#    Updated: 2023/12/20 14:44:44 by tiqin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,11 @@ $(BUILD_LIBFT):
 # test: $(LIBFT_ARCHIVE_PATH)
 # 	make -C mlx/
 # 	$(CC) $(CFLAGS) $(SRC) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+
+bonus: $(SRC) $(LIBFT_ARCHIVE_PATH) 
+	@ echo "Compiling ..."
+	make -C mlx/
+	$(CC) $(LIBFT_ARCHIVE_PATH) $^ -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -D BONUS=1
 
 clean:
 	make -C $(LIBFT_PATH) clean

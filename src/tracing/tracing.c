@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:26:49 by tiqin             #+#    #+#             */
-/*   Updated: 2023/12/20 12:28:54 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/20 14:45:33 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,9 @@ t_color	get_tracing_color(t_space *space, t_ray *ray, t_surface *tmp, int i)
 	if (factor1 < 0.0f || factor2 < 0.0f)
 		factor1 = 0.0f;
 	factor1 = factor1 * factor2;
-	re.bright = (unsigned int)((float)re.bright * powf(factor1, 2.0f));
+	re.bright = (unsigned int)((float)re.bright * powf(factor1, 1.0f));
+	if (!BONUS)
+		return (re);
 	factor1 = powf(factor1, 32.0f);
 	re.bright += (unsigned int)(factor1 * 50000.0f);
 	return (re);

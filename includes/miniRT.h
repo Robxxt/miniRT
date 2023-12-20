@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/20 13:07:36 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/20 14:38:32 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include <math.h>
 
 # include "../mlx/mlx.h"
+
+# ifndef BONUS
+#  define BONUS 0
+# endif
 
 typedef struct s_color
 {
