@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_to_space.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:20:41 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/18 11:39:56 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 13:11:05 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ void	transfer_objects(t_image p1, t_space *p2)
 		sphere_to_sp(p1.sphere[i], &(p2->sp[i]));
 	i = -1;
 	while (++i < p2->amount.cb)
+	{
 		p2->cub[i] = p1.cube[i];
+		set_cube(&p2->cub[i]);
+	}
 }
 
 /*

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 11:57:39 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/20 12:03:19 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 13:06:13 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,37 @@ bool	check_vectors(t_image *image)
 		return (false);
 	}
 	return (true);
+}
+
+void	set_cube(t_cub *cub)
+{
+	t_vector	tmp;
+	int			i;
+
+	cub->side[3].nv = cub->nv1;
+	cub->side[4].nv = v_product(&cub->nv1, -1.0f);
+	cub->side[5].nv = cub->nv2;
+	cub->side[2].nv = v_product(&cub->nv2, -1.0f);
+	cub->side[1].nv = cross_product(&cub->nv1, &cub->nv2);
+	cub->side[6].nv = v_product(&cub->side[1].nv, -1.0f);
+	i = 1;
+	while (i < 7)
+	{
+		tmp = v_product(&cub->side[i].nv, 0.5f * cub->size);
+		cub->side[i].pos = v_plus(&cub->pos, &tmp);
+		i++;
+	}
+}
+
+void	set_cyd(t_cylind *cyd)
+{
+	t_vector	tmp;
+
+	cyd->up.nv = cyd->nv;
+	cyd->down.nv = v_product(&cyd->nv, -1.0f);
+	tmp = v_product(&cyd->nv, cyd->height * 0.5f);
+	cyd->up.pos = v_plus(&cyd->pos, &tmp);
+	cyd->down.pos = v_minus(&cyd->pos, &tmp);
+	cyd->up.radii = cyd->radii;
+	cyd->down.radii = cyd->radii;
 }

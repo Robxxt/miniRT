@@ -6,7 +6,7 @@
 /*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 07:36:05 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/20 13:01:26 by tiqin            ###   ########.fr       */
+/*   Updated: 2023/12/20 13:07:36 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,8 +291,11 @@ typedef struct s_space
 // # define ASP_RATIO 0.5f
 // # define RASP_RATIO 1.0f
 
-// Vector
+// init
+void			set_cube(t_cub *cub);
+void			set_cyd(t_cylind *cyd);
 
+// Vector
 float			module2(t_vector *a);
 float			module(t_vector *a);
 t_vector		normized(t_vector a);

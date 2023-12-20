@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: tiqin <tiqin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:40:52 by rdragan           #+#    #+#             */
-/*   Updated: 2023/12/20 12:04:12 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/12/20 13:09:09 by tiqin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ t_image	*parser(char **argv)
 		clear_lst(file_content);
 		return (NULL);
 	}
-	printf("Staring programm...\n");
 	image = get_image(file_content);
 	clear_lst(file_content);
 	return (image);
